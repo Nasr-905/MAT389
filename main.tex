@@ -1,0 +1,145 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[openany,11pt,fleqn]{book} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,letterpaper]{geometry} % Page margins
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{52,177,201} % Define the orange color used for highlighting throughout the book
+
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{amsthm}
+
+\usepackage{mathtools}
+
+\usepackage{minted}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{multirow}
+\usepackage{array}
+\usetikzlibrary{arrows.meta, positioning, calc, trees, shapes, decorations, matrix, fit}
+
+% Bibliography
+\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+\usepackage{float}
+
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+%----------------------------------------------------------------------------------------
+%	Definitions of new commands
+%----------------------------------------------------------------------------------------
+
+\newcounter{ttl@toc@default} % Add counter definition
+
+\newcommand{\cvx}{convex}
+\thinmuskip=6mu
+\medmuskip=8mu plus 4mu minus 6mu
+\thickmuskip=10mu plus 10mu
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\parskip}{0pt} % Remove paragraph skip
+\allowdisplaybreaks
+
+\includeonly{
+    LECTURE_1/lecture_1.tex,
+    % LECTURE_2/lecture_2.tex,
+    % LECTURE_3/lecture_3.tex,
+    % LECTURE_4/lecture_4.tex,
+    % LECTURE_5/lecture_5.tex,
+    % LECTURE_6/lecture_6.tex
+}
+
+\begin{document}
+
+\renewcommand{\thedummy}{\Roman{chapter}.\Roman{section}.\Roman{dummy}}
+\renewcommand{\thedefinitionT}{\Roman{chapter}.\Roman{section}.\Roman{definitionT}}
+\renewcommand{\theexampleT}{\Roman{chapter}.\Roman{exampleT}}
+\renewcommand{\thechapter}{Lecture \Roman{chapter}} % Chapter numbering in Roman numerals
+\renewcommand{\thesection}{\Roman{chapter}.\Roman{section}} % Section numbering in Roman numerals
+\renewcommand{\thesubsection}{\Roman{chapter}.\Roman{section}.\Roman{subsection}} % Subsection numbering in Roman numerals
+\renewcommand{\thetable}{\Roman{chapter}.\Roman{table}}
+\renewcommand{\theequation}{\Roman{chapter}.\Roman{equation}}
+\renewcommand{\theproblem}{\Roman{problem}}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\AddToShipoutPicture*{\put(0,0){\includegraphics[scale=0.385]{./Images/banner.jpg}}} % Image background
+\centering
+\vspace*{5cm}
+\par\normalfont\fontsize{35}{35}\sffamily\selectfont
+\textbf{MAT389H1 Fall 2024}\\
+{\LARGE Complex Analysis}\par % Book title
+\vspace*{1cm}
+{\Huge Nasrudeen Oladimeji}\par % Author name
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+%\noindent Copyright \copyright\ 2014 Andrea Hidalgo\\ % Copyright notice
+
+\noindent\textsc{University of Toronto}\\
+
+\noindent \textsc{github.com/Nasr-905}\\ % URL
+
+\noindent Professor: Tristan Collins (tristan.collins@utoronto.ca)\\ % License information
+
+\noindent \textit{First release, September 2024} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{./Images/head1.jpg} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+%\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+\include{LECTURE_1/lecture_1.tex}
+
+% \include{LECTURE_2/lecture_2.tex}
+
+% \include{LECTURE_3/lecture_3.tex}
+
+% \include{LECTURE_4/lecture_4.tex}
+
+% \include{LECTURE_5/lecture_5.tex}
+
+% \include{LECTURE_6/lecture_6.tex}
+
+\end{document}
