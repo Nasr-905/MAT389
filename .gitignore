@@ -1,0 +1,14 @@
+/_minted-main
+/Textbook
+*.toc*
+*.gz*
+*.out*
+*.log*
+*.fls*
+*.fdb_latexmk*
+*.bcf*
+*.bbl*
+*.aux*
+*.ptc*
+*.xml*
+*.blg*
