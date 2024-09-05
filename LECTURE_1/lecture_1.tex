@@ -161,6 +161,11 @@ A complex number are vectors in $\mathbb{R}^2$, as such, they can be represented
     \end{align}
 \end{proof}
 
+\begin{definition}
+    [Argument]
+    The argument of a complex number $z = r(\cos(\theta) + i\sin(\theta))$ is any angle, $\arg(z) = \theta$, such that $z = r(\cos(\theta) + i\sin(\theta))$.
+\end{definition}
+
 From Equation \eqref{polar}, we observe that $r$ is unique (because we constrained it to just positive values). $\theta$, however, is not unique.
 
 \begin{definition}[Principle Orientation]
@@ -174,7 +179,15 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
         a \cdot b  = \Re(a\overline{b})
         \label{dot product}
     \end{align}
+    \begin{align}
+        \cos \theta = \frac{a \cdot b}{|a||b|}
+    \end{align}
 \end{definition}
+
+\begin{corollary}
+    [Perpendicular Vectors]
+    Complex variables $z$ and $w$ are perpendicular if $\Re(z\overline{w}) = 0$.
+\end{corollary}
 
 \begin{remark}
     [Complex Numbers to Solve Polynomial Equations]
@@ -206,24 +219,26 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
 \section{Subsets of the Plane}
 \begin{definition}
     [Open Disc]
-    An open disc of radius $r$ centered at $z_0$ is the set of all $z$ such that $D = \{|z - z_0| < R\}$.
+    An open disc of radius $R$ centered at $z_0$ is the set of all $z$ such that $D_R(z_0) = \{z \in \mathbb{C} : |z - z_0| < R \subset \mathbb{C}\}$.
 \end{definition}
 \begin{definition}
     [Interior Point]
-    A point $z_0$ is an interior point of a set $D \subset \mathbb{C}$ if there exists an open disc centered at $z_0$ that is contained in $D$.
+    A point $z_0$ is an interior point of a set $A \subset \mathbb{C}$ if there exists an open disc centered at $z_0$ that is contained in $A$.
+    \[z_0 \text{is an interior point of $A$ if} \exists D_{>0}(z_0)\in A\]
 \end{definition}
 
 \begin{definition}
     [Open Set]
-    A set $D \subset \mathbb{C}$ is open if every point in $D$ is an interior point.
+    A set $A \subset \mathbb{C}$ is open if every point in $A$ is an interior point. \\
+    \textit{I.e. there are no 'hard lines' in the set.}
 \end{definition}
 
 \begin{example}
     [Open Disc]
-    Show that the disc $D = \{z \in \mathbb{C} : |z - z_0| < R\}$ is an open set.
+    Show that the disc $D_R(z_0) = \{z \in \mathbb{C} : |z - z_0| < R\}$ is an open set.
     \begin{proof}
         Let $z_1 \in D$. Then $|z_1 - z_0| < R$. Let $r = R - |z_1 - z_0|$. Then $r > 0$. \\
-        Let $z_2 \in D$ such that $|z_2 - z_1| < r$. Then:
+        Let $z_2 \in D$ be any point in $D$, such that $|z_2 - z_1| < r$. Then:
         \begin{align*}
             |z_2 - z_0| & \leq |z_2 - z_1| + |z_1 - z_0| \\
                         & < r + R - r = R
@@ -234,8 +249,9 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
 
 \begin{definition}
     [Boundary ($\partial D$)]
-    The boundary of a set $D$ is the set of all points $z$ such that every open disc centered at $z$ contains points in $D$ and points not in $D$. \\
-    The boundary of $D$ is denoted by $\partial D$ and a boundary point $z$ is denoted by $z \in \partial D$.
+    The boundary of a set $A$ is the set of all points $z$ such that every open disc centered at $z$ contains points in $A$ and points not in $A$. \\
+    The boundary of $A$ is denoted by $\partial A$ and a boundary point $z$ is denoted by $z \in \partial A$.
+    \[z_0 \text{is an boundary point of $A$ if} \exists z \in D_{R}(z_0) :z \notin A \forall R> 0\]
 \end{definition}
 
 \begin{definition}
