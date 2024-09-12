@@ -48,7 +48,7 @@
     [Division]
     For $z, w \in \mathbb{C}$, $\frac{w}{z} = w \cdot z^{-1} = \frac{w\overline{z}}{|z|^2}$.
 \end{definition}
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \caption{Properties of the Complex Conjugate}
     \begin{tabular}{|c|c|}
@@ -78,7 +78,7 @@
     \end{tabular}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \caption{Properties of the Modulus in Complex Numbers}
     \begin{tabular}{|c|c|}
@@ -173,9 +173,9 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
 \end{definition}
 
 \begin{definition}
-    [Vector Dot Product] The dot product of two vectors $a = (a_1, a_2)$ and $b = (b_1, b_2)$ is given by:
+    [Vector Dot Product] The dot product of two complex numbers $z = x+ iy$ and $w = s + it$ is defined as:
     \begin{align}
-        a \cdot b  = \Re(a\overline{b})
+        z \cdot w = x \cdot s + y \cdot t = \Re(z\overline{w})
         \label{dot product}
     \end{align}
     \begin{align}
@@ -223,7 +223,7 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
 \begin{definition}
     [Interior Point]
     A point $z_0$ is an interior point of a set $A \subset \mathbb{C}$ if there exists an open disc centered at $z_0$ that is contained in $A$.
-    \[z_0 \text{is an interior point of $A$ if} \exists D_{>0}(z_0)\in A\]
+    \[z_0 \quad \text{is an interior point of $A$ if} \quad \exists D_{>0}(z_0)\in A\]
 \end{definition}
 
 \begin{definition}
@@ -248,9 +248,9 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
 
 \begin{definition}
     [Boundary ($\partial D$)]
-    The boundary of a set $A$ is the set of all points $z$ such that every open disc centered at $z$ contains points in $A$ and points not in $A$. \\
+    The boundary of a set $A$ is the set of all points $z$ such that every open disc centered at $z$, no matter how small, contains points in $A$ and points not in $A$. \\
     The boundary of $A$ is denoted by $\partial A$ and a boundary point $z$ is denoted by $z \in \partial A$.
-    \[z_0 \text{is an boundary point of $A$ if} \exists z \in D_{R}(z_0) :z \notin A \forall R> 0\]
+    \[z_0 \quad \text{is an boundary point of $A$ if} \quad \exists z \in D_{R}(z_0) :z \notin A \forall R> 0\]
 \end{definition}
 
 \begin{definition}
@@ -258,7 +258,7 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
     A set $D$ is closed if it contains all its boundary points.
 \end{definition}
 \begin{remark}
-    A set can be both open and closed ($\mathbb{C}, \emptyset$), open and not closed, closed and not open, or neither open nor closed.
+    A set can be both open and closed ($\mathbb{C}, \emptyset$), open and not closed, closed and not open, or neither open nor closed (contains part, but not all of their boundary).
 \end{remark}
 \begin{theorem}
     [Properties of Open and Closed Sets]
@@ -268,3 +268,44 @@ From Equation \eqref{polar}, we observe that $r$ is unique (because we constrain
         \item $D$ is open if and only if it contains none of its boundary points.
     \end{enumerate}
 \end{theorem}
+
+\section{Lines and Circles (Not done in class, Fisher 1.3)}
+\begin{definition}
+    [Line in the Complex Plane]
+    A line of the form $y= mx + b$ can be formulated as:
+    \[
+        0 = \Re\{(m + i)z + b\}
+    \]
+    Such that when the real part of the complex number is zero, the line is satisfied. The general form is:
+    \begin{align}
+        0 = \Re\{az + b\}, \qquad a, b, z \in \mathbb{C} \\
+        \text{where } a = A + iB \text{ such that: }     \\
+        Ax - By + \Re{b} = 0
+    \end{align}
+    \textit{Note that the imaginary part of $b$ does not affect the line.}
+\end{definition}
+
+\begin{definition}
+    [Simple Circle in the Complex Plane]
+    Circles in the complex plane can be formulated as:
+    \begin{align}
+        |z - z_0| = R
+    \end{align}
+    Where $z_0$ is the \textit{locus} of the circle and $R$ is the radius.
+\end{definition}
+
+\begin{definition}
+    [Perpendicular Bisector]
+    The perpendicular bisector of the line segment between $p$ and $q$ is the set of all points $z$ such that
+    \[|z - p| = |z - q|\]
+\end{definition}
+
+\begin{corollary}
+    [Apollonian Circles]
+    If $p$ and $q$ are distinct complex numbers then a circle can be formulated as:
+    \begin{align}
+        |z - p|     & = \rho|z - q| \qquad 0 < \rho \in \mathbb{R}, \rho \neq 1                                                               \\
+        \rightarrow & \quad \text{Where} \quad z_0 = \frac{p - \rho^2q}{1 - \rho^2} \quad \text{and} \quad R = \frac{|p - q|\rho}{1 - \rho^2}
+    \end{align}
+
+\end{corollary}

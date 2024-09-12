@@ -1,0 +1,245 @@
+\chapter{Series and Sequences}
+
+\begin{definition}
+    [infinite Series]
+    Suppose we have a sequence:
+    \begin{equation}
+        z_1, z_2, z_3, \ldots
+    \end{equation}
+    We can define the partial sum of the sequence as:
+    \begin{equation}
+        S_n = z_1 + z_2 + z_3 + \ldots + z_n
+    \end{equation}
+    We say $\sum_{n=1}^{\infty} z_n$ converges and has a sum $S$ if the sequence of partial sums converges to $S$:
+    \begin{equation}
+        \lim_{n \to \infty} S_n = S
+    \end{equation}
+    If $\lim_{n \to \infty} S_n$ does not exist, we say the series diverges.
+\end{definition}
+
+\begin{corollary}
+    [Real and Imaginary Parts of a Series]
+    If $\sum_{n=1}^{\infty} z_n$ converges, then the real and imaginary parts of the series also converge.
+    \begin{equation}
+        \sum_{n=1}^{\infty} z_n = \sum_{n=1}^{\infty} \Re(z_n) + i \sum_{n=1}^{\infty} \Im(z_n)
+    \end{equation}
+\end{corollary}
+
+\section{Tests for Convergence}
+\begin{theorem}
+    If $\sum_{n=1}^{\infty} z_n$ converges, then so does $\sum_{n=1}^{\infty} z_n$ and:
+    \[
+        \left| \sum_{n=1}^{\infty} z_n \right| \leq \sum_{n=1}^{\infty} |z_n|
+    \]
+\end{theorem}
+
+\begin{proof}
+    Say $z_n = x_n + i y_n$. Then:
+    \begin{align}
+         & \left| \sum_{n=1}^{\infty} x_n \right| & \leq \sum_{n=1}^{\infty}  \left| x_n \right| \leq \sum_{n=1}^{\infty}  \left| z_n \right| \\
+         & \text{And}                                                                                                                         \\
+         & \left| \sum_{n=1}^{\infty} y_n \right| & \leq \sum_{n=1}^{\infty}  \left| y_n \right| \leq \sum_{n=1}^{\infty}  \left| z_n \right|
+    \end{align}
+    So if $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\infty} y_n$ converge, then $\sum_{n=1}^{\infty} z_n$ converges.
+\end{proof}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{| m{3cm} | m{7cm} | m{4cm} |}
+        \hline
+        \textbf{Test Name}         & \textbf{Description}                                                                                                                   & \textbf{Conditions for Use}                                         \\
+        \hline
+        Ratio Test                 & Uses the limit of the ratio of successive terms to determine convergence. \[ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| \] & Applicable when terms are positive and the limit exists.            \\
+        \hline
+        Root Test                  & Uses the limit of the nth root of the terms to determine convergence. \[ \lim_{n \to \infty} \sqrt[n]{|a_n|} \]                        & Applicable when terms are positive and the limit exists.            \\
+        \hline
+        Integral Test              & Compares a series to an improper integral to determine convergence. \[ \int_{1}^{\infty} f(x) \, dx \]                                 & Applicable when terms are positive, continuous, and decreasing.     \\
+        \hline
+        Comparison Test            & Compares a series to a known convergent or divergent series.                                                                           & Applicable when terms are positive.                                 \\
+        \hline
+        Limit Comparison Test      & Compares the limit of the ratio of terms to a known series. \[ \lim_{n \to \infty} \frac{a_n}{b_n} \]                                  & Applicable when terms are positive and the limit exists.            \\
+        \hline
+        Alternating Series Test    & Determines convergence for series with alternating positive and negative terms.                                                        & Applicable when terms decrease in absolute value and approach zero. \\
+        \hline
+        p-Series Test              & Determines convergence based on the exponent in a series of the form \[ \sum \frac{1}{n^p} \]                                          & Applicable for series of the form \(\frac{1}{n^p}\).                \\
+        \hline
+        Geometric Series Test      & Determines convergence for geometric series. \[ \sum ar^n \]                                                                           & Applicable for series of the form \(ar^n\).                         \\
+        \hline
+        D'Alembert's Ratio Test    & Similar to the Ratio Test, but specifically for series with factorial terms.                                                           & Applicable when terms involve factorials.                           \\
+        \hline
+        Cauchy's Condensation Test & Determines convergence by condensing the series. \[ \sum a_n \sim \sum 2^n a_{2^n} \]                                                  & Applicable for series with positive, decreasing terms.              \\
+        \hline
+    \end{tabular}
+    \caption{Common Tests for Convergence of Series}
+    \label{table:convergence_tests}
+\end{table}
+
+
+\begin{example}
+    \begin{align}
+        \sum_{j=1}^{\infty} j \left( \frac{1 + 2i}{3} \right)^j &
+    \end{align}
+    We can use the ratio test to determine convergence:
+    \begin{align}
+        \sum_{j=1}^{\infty} \left| z_j \right|                 & = \sum_{j=1}^{\infty} j \left| \frac{1 + 2i}{3} \right|^j                                 \\
+                                                               & = \sum_{j=1}^{\infty} j \left( \frac{\sqrt{5}}{3} \right)^j                               \\
+        \lim_{j \to \infty} \left| \frac{z_{j+1}}{z_j} \right| & = \lim_{j \to \infty} \frac{(j+1)({\frac{\sqrt{5}}{3}})^{j + 1}}{j(\frac{\sqrt{5}}{3})^j} \\
+                                                               & = \lim_{j \to \infty} \frac{j+1}{j} \left( \frac{\sqrt{5}}{3} \right)                     \\
+                                                               & = \frac{5}{3} < 1
+                                                               & \therefore \text{The series converges}
+    \end{align}
+\end{example}
+
+\section{The Exponential Function}
+\subsection*{Approach 1}
+\begin{definition}
+    [Exponential Function]
+    If $z = x + iy$, then the exponential function is defined as:
+    \begin{equation}
+        e^z = e^x \left( \cos(y) + i \sin(y) \right)
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    [Euler's Formula]
+    \begin{align}
+        e^{i\theta} & \triangleq \cos(\theta) + i \sin(\theta) \\
+    \end{align}
+\end{remark}
+
+\subsection*{Properties of the complex Exponential Function}
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{| m{2.5cm} | m{11.5cm} |}
+        \hline
+        \textbf{Property} & \textbf{Description}                                                                                                                      \\
+        \hline
+        Periodicity       & The complex exponential function is periodic with period \( 2\pi i \), \[ e^{z + 2\pi i} = e^z \].                                        \\
+        \hline
+        Multiplication    & The exponential function satisfies \[ e^{z_1 + z_2} = e^{z_1} e^{z_2} \] for any complex numbers \( z_1 \) and \( z_2 \).                 \\
+        \hline
+        Derivative        & The derivative of the exponential function is \[ \frac{d}{dz} e^z = e^z \].                                                               \\
+        \hline
+        Inverse           & The inverse of the exponential function is the complex logarithm, \[ \log z \], such that \[ e^{\log z} = z \] for \( z \neq 0 \).        \\
+        \hline
+        Magnitude         & The magnitude of the exponential function is \[ |e^z| = e^{\Re(z)} \], where \( \Re(z) \) denotes the real part of \( z \).               \\
+        \hline
+        Argument          & The argument of the exponential function is \[ \arg(e^z) = \Im(z) \mod 2\pi \], where \( \Im(z) \) denotes the imaginary part of \( z \). \\
+        \hline
+        Conjugate         & The conjugate of the exponential function is \[ \overline{e^z} = e^{\overline{z}} \].                                                     \\
+        \hline
+    \end{tabular}
+    \caption{Properties of the Complex Exponential Function}
+    \label{table:complex_exponential_properties}
+\end{table}
+
+\subsection*{Approach 2: Taylor Series}
+
+\begin{definition}
+    [The Exponential Function]
+    The exponential function can be defined as:
+    \begin{equation}
+        e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!} \qquad \text{for all } z \in \mathbb{C}
+    \end{equation}
+\end{definition}
+
+\begin{claim}
+    [The Taylor Series for the Exponential Function Converges]
+    $\sum_{n=0}^{\infty} \frac{z^n}{n!}$ converges for all $z \in \mathbb{C}$.
+\end{claim}
+\begin{proof}
+    HOMEWORK
+\end{proof}
+
+\begin{problem}
+For $\theta \in \mathbb{R}$
+\[
+    e^{i\theta} = \sum_{n=0}^{\infty} \frac{(i\theta)^n}{n!} = \cos(\theta) + i \sin(\theta)
+\]
+\end{problem}
+
+\section{Approach 3: Differential Equations}
+\begin{definition}
+    [Differential Equation for the Exponential Function]
+    The exponential function satisfies the differential equation:
+    \begin{equation}
+        f(z) = \begin{cases}
+            \frac{df}{dz} = f & \text{for all } z \in \mathbb{C} \\
+            f(0) = 1
+        \end{cases}
+    \end{equation}
+\end{definition}
+
+\section{The Logarithm Function}
+\begin{definition}
+    [Logarithm Function]
+    The logarithm function is defined as the inverse of the exponential function:
+    \begin{equation}
+        \log z = \log |z| + i \theta
+    \end{equation}
+\end{definition}
+\begin{remark}
+    There will be many solutions to the logarithm function, as the argument is only defined modulo \(2\pi\).
+    \[
+        \log z = \log |z| + i \left( \arg(z) + 2\pi n \right) \qquad \text{for } n \in \mathbb{Z}
+    \]
+\end{remark}
+
+\begin{definition}
+    [Principal Logarithm]
+    The principal branch logarithm is defined as:
+    \[
+        \text{Log}(z) = \log |z| + i \arg(z) \qquad \text{for } -\pi < \arg(z) \leq \pi
+    \]
+    \textit{Note: We use a capital L to denote the principal logarithm.}
+\end{definition}
+
+\begin{definition}
+    [Fixed $\theta_0$ Logarithm Function]
+    We can fix the argument of the logarithm function by setting \(\theta_0\) and letting $D = \{ te^{i\theta_0} | t > 0, t \in \mathbb{R} \}$.\\
+    We define:
+    \[
+        \widetilde{\log}_{\theta_0} z = \log |z| + i \left( \widetilde{\arg}(z) + \theta_0 \right) \qquad \text{for } z \in D, \arg(z) \in [\theta_0, \theta_0 + 2\pi)
+    \]
+\end{definition}
+
+\begin{example}
+    [Find the Values of $(-1)^i$]
+    \begin{align}
+        (-1)^i   & = e^{i \log(-1)}                         \\
+                 & = e^{i (2n + 1)\pi i}                    \\
+                 & = e^{-2n\pi}                             \\
+        \log(-1) & = -(2n + 1)\pi i \qquad n \in \mathbb{Z} \\
+        (-1)^i   & = e^{2n + 1}\pi
+    \end{align}
+\end{example}
+
+\section{The Trigonometric Functions}
+\begin{definition}
+    [Trigonometric Functions]
+    For $z \in mathbb{C}$ trigonometric functions are defined as:
+    \begin{align}
+        \Re{e^{iz}} & = \cos(z)  = \frac{e^{iz} + e^{-iz}}{2}  \\
+        \Im{e^{iz}} & = \sin(z)  = \frac{e^{iz} - e^{-iz}}{2i} \\
+        \tan(z)     & = \frac{\sin(z)}{\cos(z)}                \\
+    \end{align}
+\end{definition}
+
+\begin{lemma}
+    \begin{align}
+        \begin{cases}
+            \cos(z + \alpha) = \cos(z) \\
+            \sin(z + \alpha) = \sin(z)
+        \end{cases}
+    \end{align}
+    iff $\alpha = 2\pi n$ for $n \in \mathbb{Z}$.
+\end{lemma}
+
+\begin{proof}
+    \begin{align}
+        e^{i(z + \alpha)} & = e^{iz} e^{i\alpha}                                   \\
+                          & = e^{iz} \left( \cos(\alpha) + i \sin(\alpha) \right)  \\
+                          & = e^{iz} \left( \cos(2\pi n) + i \sin(2 \pi n) \right) \\
+                          & = e^{iz}
+    \end{align}
+\end{proof}
