@@ -1,4 +1,4 @@
-\chapter{Series and Sequences}
+\chapter{Lecture 3: Series and Sequences}
 
 \begin{definition}
     [infinite Series]
@@ -45,29 +45,30 @@
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{| m{3cm} | m{7cm} | m{4cm} |}
+    \begin{tabular}{| m{2cm} | m{5cm} | m{3cm} | m{3cm} |}
         \hline
-        \textbf{Test Name}         & \textbf{Description}                                                                                                                   & \textbf{Conditions for Use}                                         \\
+        \textbf{Test Name}         & \textbf{Description}                                                                                  & \textbf{Conditions for Use}                                               & \textbf{Results}                                                                          \\
         \hline
-        Ratio Test                 & Uses the limit of the ratio of successive terms to determine convergence. \[ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| \] & Applicable when terms are positive and the limit exists.            \\
+        Ratio Test                 & \[ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| \]                                          & Applicable when terms are positive and the limit exists.                  & Converges if \( L < 1 \), diverges if \( L > 1 \), inconclusive if \( L = 1 \).           \\
         \hline
-        Root Test                  & Uses the limit of the nth root of the terms to determine convergence. \[ \lim_{n \to \infty} \sqrt[n]{|a_n|} \]                        & Applicable when terms are positive and the limit exists.            \\
+        Root Test                  & \[ \lim_{n \to \infty} \sqrt[n]{|a_n|} \]                                                             & Applicable when terms are positive and the limit exists.                  & Converges if \( L < 1 \), diverges if \( L > 1 \), inconclusive if \( L = 1 \).           \\
         \hline
-        Integral Test              & Compares a series to an improper integral to determine convergence. \[ \int_{1}^{\infty} f(x) \, dx \]                                 & Applicable when terms are positive, continuous, and decreasing.     \\
+        Integral Test              & Compares a series to an improper. \[ \int_{1}^{\infty} f(x) \, dx \]                                  & Applicable when terms are positive, continuous, and decreasing.           & Converges if the integral converges, diverges if the integral diverges.                   \\
         \hline
-        Comparison Test            & Compares a series to a known convergent or divergent series.                                                                           & Applicable when terms are positive.                                 \\
+        Comparison Test            & Compares a series to a known convergent or divergent series.                                          & Applicable when terms are positive.                                       & Converges if the series being compared to converges.                                      \\
         \hline
-        Limit Comparison Test      & Compares the limit of the ratio of terms to a known series. \[ \lim_{n \to \infty} \frac{a_n}{b_n} \]                                  & Applicable when terms are positive and the limit exists.            \\
+        Limit Comparison Test      & Compares the limit of the ratio of terms to a known series. \[ \lim_{n \to \infty} \frac{a_n}{b_n} \] & Applicable when terms are positive and the limit exists.                  & Converges if the limit is finite and the comparison series converges, diverges otherwise. \\
         \hline
-        Alternating Series Test    & Determines convergence for series with alternating positive and negative terms.                                                        & Applicable when terms decrease in absolute value and approach zero. \\
+        Alternating Series Test    & \[ \sum (-1)^n a_n \quad \text{or}\quad \sum (-1)^{n+1} a_n \]
+                                   & When dealing with alternating series                                                                  & Converges if: $a_n > 0$, decreasing, and $\lim_{n\to \infty}a_n = 0     $                                                                                             \\
         \hline
-        p-Series Test              & Determines convergence based on the exponent in a series of the form \[ \sum \frac{1}{n^p} \]                                          & Applicable for series of the form \(\frac{1}{n^p}\).                \\
+        p-Series Test              & Determines convergence based on the exponent in a series of the form \[ \sum \frac{1}{n^p} \]         & Applicable for series of the form \(\frac{1}{n^p}\).                      & Converges if \( p > 1 \), diverges if \( p \leq 1 \).                                     \\
         \hline
-        Geometric Series Test      & Determines convergence for geometric series. \[ \sum ar^n \]                                                                           & Applicable for series of the form \(ar^n\).                         \\
+        Geometric Series Test      & Determines convergence for geometric series. \[ \sum ar^n \]                                          & Applicable for series of the form \(ar^n\).                               & Converges if \( |r| < 1 \), diverges if \( |r| \geq 1 \).                                 \\
         \hline
-        D'Alembert's Ratio Test    & Similar to the Ratio Test, but specifically for series with factorial terms.                                                           & Applicable when terms involve factorials.                           \\
+        D'Alembert's Ratio Test    & Similar to the Ratio Test, but specifically for series with factorial terms.                          & Applicable when terms involve factorials.                                 & Converges if the ratio is less than 1, diverges if greater than 1.                        \\
         \hline
-        Cauchy's Condensation Test & Determines convergence by condensing the series. \[ \sum a_n \sim \sum 2^n a_{2^n} \]                                                  & Applicable for series with positive, decreasing terms.              \\
+        Cauchy's Condensation Test & Determines convergence by condensing the series. \[ \sum a_n \sim \sum 2^n a_{2^n} \]                 & Applicable for series with positive, decreasing terms.                    & Converges if the condensed series converges, diverges if the condensed series diverges.   \\
         \hline
     \end{tabular}
     \caption{Common Tests for Convergence of Series}

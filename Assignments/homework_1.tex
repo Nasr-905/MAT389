@@ -1,0 +1,226 @@
+\chapter{Homework 1}
+
+\begin{example}
+    [Fisher, Section 1.2, Problem 2] Describe the locus of points $z$ satisfying the equation
+    \[|z-4|=4|z|\]
+    \textbf{Solution:} \\
+    Let $z=x+iy$. Then
+    \begin{align*}
+        |z-4|                                     & = |x+iy-4| = |x-4+iy| = \sqrt{(x-4)^2+y^2}                                   \\
+        4|z|                                      & = 4|x+iy| = 4\sqrt{x^2+y^2}                                                  \\
+        \sqrt{(x-4)^2+y^2}                        & = 4\sqrt{x^2+y^2}                                                            \\
+        (x-4)^2+y^2                               & = 16(x^2+y^2)                                                                \\
+        x^2-8x+16+y^2                             & = 16x^2+16y^2                                                                \\
+        15x^2+15y^2+8x-16                         & = 0                                                                          \\
+        x^2 + y^2 + \frac{8}{15}x - \frac{16}{15} & = 0                                                                          \\
+        \Rightarrow \quad \text{complete the square}                                                                             \\
+        x^2                                       & + \frac{8}{15}x + (\frac{4}{15})^2 - (\frac{4}{15})^2 + y^2  = \frac{16}{15} \\
+        (x+\frac{4}{15})^2 + y^2                  & = \frac{16}{15} + (\frac{4}{15})^2                                           \\
+        (x+\frac{4}{15})^2 + y^2                  & = \frac{16}{15} + \frac{16}{225}                                             \\
+        (x+\frac{4}{15})^2 + y^2                  & = \frac{256}{225}                                                            \\
+    \end{align*}
+    $\therefore$ The locus of points $z$ satisfying the equation $|z-4|=4|z|$ is a circle with center $(-\frac{4}{15},0)$ and radius $\sqrt{\frac{256}{225}} = \frac{16}{15}$.
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.2, Problem 24]
+    Find all solutions of the equation
+    \[(z+1)^4=1-i\]
+    \textbf{Solution:} \\
+    \begin{align*}
+                    & \quad \text{Convert $1-i$ to polar form}                                                           \\
+        \arg{1-i}   & = \tan^{-1}(-1) = -\frac{\pi}{4} + 2k\pi        \quad \text{where $k\in\mathbb{Z}$}                \\
+        |1-i|       & = \sqrt{1^2+(-1)^2} = \sqrt{2}                                                                     \\
+        1-i         & = \sqrt{2}(cos(-\frac{\pi}{4} + 2k\pi)+isin(-\frac{\pi}{4} + 2k\pi))                               \\
+                    & \quad \text{Use De Moivre's Theorem}                                                               \\
+        \rightarrow & z^n = r^n(cos(n\theta)+isin(n\theta))                                                              \\
+        z +1        & = 2^{\frac{1}{8}}(\cos(\frac{-\pi}{4}+\frac{2\pi k}{4})+i\sin(\frac{-\pi}{4}+\frac{2\pi k}{4}))    \\
+        z           & = 2^{\frac{1}{8}}(\cos(\frac{-\pi}{4}+\frac{2\pi k}{4})+i\sin(\frac{-\pi}{4}+\frac{2\pi k}{4})) -1 \\
+    \end{align*}
+    We can now find the solutions by plugging in $k=0,1,2,3$.
+    \begin{align}
+        \theta_0 & = \frac{-\pi}{4} + \frac{2\pi \cdot 0}{4} = -\frac{\pi}{4} \quad k = 0 \nonumber \\
+        \theta_1 & = \frac{-\pi}{4} + \frac{2\pi \cdot 1}{4} = \frac{\pi}{4} \quad k = 1 \nonumber  \\
+        \theta_2 & = \frac{-\pi}{4} + \frac{2\pi \cdot 2}{4} = \frac{3\pi}{4} \quad k = 2 \nonumber \\
+        \theta_3 & = \frac{-\pi}{4} + \frac{2\pi \cdot 3}{4} = \frac{5\pi}{4} \quad k = 3 \nonumber
+    \end{align}
+    So our solutions are:
+    \begin{align}
+        z = 2^{\frac{1}{8}}(\cos(-\frac{\pi}{4})+i\sin(-\frac{\pi}{4})) -1 & = 2^{\frac{1}{8}}(\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}i) -1 \nonumber  \\
+        z = 2^{\frac{1}{8}}(\cos(\frac{\pi}{4})+i\sin(\frac{\pi}{4})) -1   & = 2^{\frac{1}{8}}(\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i) -1 \nonumber  \\
+        z = 2^{\frac{1}{8}}(\cos(\frac{3\pi}{4})+i\sin(\frac{3\pi}{4})) -1 & = 2^{\frac{1}{8}}(-\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}i) -1 \nonumber \\
+        z = 2^{\frac{1}{8}}(\cos(\frac{5\pi}{4})+i\sin(\frac{5\pi}{4})) -1 & = 2^{\frac{1}{8}}(-\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}i) -1 \nonumber
+    \end{align}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.2, Problem 26]
+    Find all solutions of the equation $z^3=8$.
+    \textbf{Solution:} \\
+    First, we convert $8$ to polar form.
+    \begin{align*}
+        8 & = 8(\cos(0)+i\sin(0))                                               \\
+          & = 8(\cos(2\pi k)+i\sin(2\pi k)) \quad \text{where $k\in\mathbb{Z}$}
+    \end{align*}
+    Then we use De Moivre's Theorem to find the solutions.
+    \begin{align*}
+        \rightarrow z^n & = r^n(\cos(n\theta)+i\sin(n\theta))                                              \\
+        z               & = 2(\cos(\frac{2\pi k}{3})+i\sin(\frac{2\pi k}{3})) \quad \text{where $k=0,1,2$}
+    \end{align*}
+    So our solutions are:
+    \begin{align*}
+        z = 2(\cos(0)+i\sin(0))                           & = 2(1+i0) = 2                                        \\
+        z = 2(\cos(\frac{2\pi}{3})+i\sin(\frac{2\pi}{3})) & = 2(-\frac{1}{2}+i\frac{\sqrt{3}}{2}) = -1+i\sqrt{3} \\
+        z = 2(\cos(\frac{4\pi}{3})+i\sin(\frac{4\pi}{3})) & = 2(-\frac{1}{2}-i\frac{\sqrt{3}}{2}) = -1-i\sqrt{3}
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.3, Problem 2]
+    For the following set, describe (i) the interior and the boundary, (ii) state whether the set is open, or closed, or neither open nor closed, (iii) state whether the interior of the set is connected (if it has an interior).
+    $$A = \{z\in\mathbb{C}:|z|<1\text{or}|z-3|\leq1\}$$
+    \textbf{Solution:} \\
+    \begin{enumerate}
+        \item $A_{int} = \{|z| < 1 \text{ or } |z - 3| < 1\}$
+        \item $A_{bd} = \{|z| = 1 \text{ or } |z - 3| = 1\}$
+        \item $A$ is neither open nor closed because $\{|z| = 1\} \notin A$ but $\{|z - 3| = 1\} \in A_{int}$, so $A$ contains only part of its boundary.
+        \item $A_{int}$ is not connected, because $z_1 = 0, z_2 = 3 \in A_{int}$, but $\nexists P_1P_2\ldots P_n \in A_{int} $ such that $z_1P_1P_2\ldots P_nz_2 \in A_{int}$
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.3, Problem 4]
+    For the following set, describe (i) the interior and the boundary, (ii) state whether the set is open, or closed, or neither open nor closed, (iii) state whether the interior of the set is connected (if it has an interior).
+    $$A = \{z\in\mathbb{C}:\mathrm{Re}(z^2)=4\}$$
+
+    \textbf{Solution:} \\
+    Let $z=x+iy$. Then
+    \begin{align*}
+        \mathrm{Re}(z^2) & = \mathrm{Re}((x+iy)^2)
+        = \mathrm{Re}(x^2-y^2+2ixy)                \\
+                         & 4 = x^2-y^2
+    \end{align*}
+    \begin{enumerate}
+        \item No interior, because $\forall z_0 \in A \quad \nexists D | D_R(z_0) = \{z \in \mathbb{C} : |z - z_0| < R, R > 0\} $
+        \item $A_{bd} = \{z \in \mathbb{C} : x^2 - y^2 = 4\}$
+        \item $ A_{bd} = A$ so $A$ is closed.
+        \item $A_{int}$ is connected because $A_{int} = \emptyset$.
+    \end{enumerate}
+\end{example}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                axis lines = center,
+                xlabel = $x$,
+                ylabel = $y$,
+                xmin = -5,
+                xmax = 5,
+                ymin = -5,
+                ymax = 5,
+            ]
+            \addplot [
+                domain=-5:5,
+                samples=100,
+                color=red,
+            ]
+            {sqrt(x^2-4)};
+            \addplot [
+                domain=-5:5,
+                samples=100,
+                color=red,
+            ]
+            {-sqrt(x^2-4)};
+        \end{axis}
+
+    \end{tikzpicture}
+    \caption{Plot of $ 4 = x^2-y^2$}
+\end{figure}
+
+\begin{example}
+    [Fisher, Section 1.4, Problem 12]
+    Find
+    $$\lim_{z\to2}(z-2)\log|z-2|,$$
+    or explain why it does not exist.
+    \textbf{Solution:} \\
+    We use L'Hopital's Rule to find the limit.
+    \begin{align}
+        \lim_{z \to 2} (z-2)\log|z-2| & = \lim_{z \to 2} \frac{\log|z-2|}{\frac{1}{z-2}} \nonumber                                                         \\
+                                      & = \lim_{z \to 2} \frac{\frac{\partial}{\partial z}\log|z-2|}{\frac{\partial}{\partial z}\frac{1}{(z-2)}} \nonumber \\
+                                      & = \lim_{z \to 2} \frac{\frac{1}{z-2}}{-\frac{1}{(z-2)^2}} \nonumber                                                \\
+                                      & = \lim_{z \to 2} \frac{1}{\frac{1}{2-z}} \nonumber                                                                 \\
+                                      & = \lim_{z \to 2} 2-z \nonumber                                                                                     \\
+                                      & = 0 \nonumber
+    \end{align}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.4, Problem 16]
+    Find all the points where the following function is continuous:
+    $$f(z)=\begin{cases}\:\frac{z^4-1}{z-i},&z\neq i\\\:4i,&z=i\end{cases}$$
+    \textbf{Solution:} \\
+    First normalize the denominator.
+    \begin{align*}
+        f(z) & = \frac{z^4-1}{z-i} = \frac{(z^2+1)(z+1)(z-1)}{z-i} = \frac{(z^2+1)(z+1)(z-1)}{z-i}\frac{z+i}{z+i} \\
+             & = \frac{(z^2+1)(z+1)(z-1)(z+i)}{z^2+1} = (z+1)(z-1)(z+i), \quad z \neq i
+    \end{align*}
+    As this is a polynomial, it is continuous everywhere except at $z=i$. Now we test for continuity at $z=i$.
+    \begin{align*}
+        \lim_{z \to i} f(z)           & = f(i) \\
+        \lim_{z \to i}(z+1)(z-1)(z+i) & = 4i   \\
+        (i+1)(i-1)(i+i)               & = 4i   \\
+        4i                            & = 4i
+    \end{align*}
+    So $f(z)$ is continuous everywhere.
+\end{example}
+
+
+\begin{example}
+    [Fisher, Section 1.4, Problem 34]
+    Does the following series converge or diverge?
+    $$\sum_{n=1}^\infty\frac1{2+i^n}$$
+    \textbf{Solution:} \\
+    We notice:
+    \begin{align*}
+        \frac{1}{2+i^n} & = \frac{1}{2+1} \quad \text{for $n=0, 4, 8, \ldots$} \\
+        \frac{1}{2+i^n} & = \frac{1}{2+i} \quad \text{for $n=1,5,9,\ldots$}    \\
+        \frac{1}{2+i^n} & = \frac{1}{2-1} \quad \text{for $n=2,6,10,\ldots$}   \\
+        \frac{1}{2+i^n} & = \frac{1}{2-i} \quad \text{for $n=3,7,11,\ldots$}
+    \end{align*}
+    Which forms a cycle, so the series diverges.
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.4, Problem 36]
+    Show that each of the following series converges for all $z$.
+    \begin{enumerate}
+        \item $$\sum_{n=0}^\infty\frac{z^{n}}{n!}$$
+        \item $$\sum_{n=0}^\infty(-1)^n\frac{z^{2n}}{(2n)!}$$
+        \item $$\sum_{n=0}^\infty\frac{z^{2n+1}}{(2n+1)!}$$
+    \end{enumerate}
+    \textbf{Solution:} \\
+    \begin{enumerate}
+        \item We use the ratio test to show convergence.
+              \begin{align*}
+                  \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| & = \lim_{n \to \infty} \left|\frac{z^{n+1}}{(n+1)!}\frac{n!}{z^n}\right| \\
+                                                                       & = \lim_{n \to \infty} \left|\frac{z}{n+1}\right|                        \\
+                                                                       & = 0
+              \end{align*}
+              So the series converges for all $z$.
+        \item We use the ratio test to show convergence.
+              \begin{align*}
+                  \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| & = \lim_{n \to \infty} \left|\frac{(-1)^{n+1}\frac{z^{2(n+1)}}{(2(n+1))!}}{(-1)^n\frac{z^{2n}}{(2n)!}}\right| \\
+                                                                       & = \lim_{n \to \infty} \left|\frac{z^2}{(2n+2)(2n+1)}\right|                                                  \\
+                                                                       & = 0
+              \end{align*}
+              So the series converges for all $z$.
+        \item We use the ratio test to show convergence.
+              \begin{align*}
+                  \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| & = \lim_{n \to \infty} \left|\frac{z^{2(n+1)+1}}{(2(n+1)+1)!}\frac{(2n+1)!}{z^{2n+1}}\right| \\
+                                                                       & = \lim_{n \to \infty} \left|\frac{z^2}{(2n+3)(2n+2)(2n+1)}\right|                           \\
+                                                                       & = 0
+              \end{align*}
+              So the series converges for all $z$. \qedhere
+    \end{enumerate}
+
+\end{example}

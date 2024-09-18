@@ -1,0 +1,108 @@
+\chapter{Line Integrals: Green's Continuous  Map}
+\begin{theorem}
+    [Parametrized Curves]
+    $$ \gamma (t) = x(t) + iy(t) \quad a \leq t \leq b $$
+    $\gamma [a,b] \to \mathbb{C}$ is the image of $\gamma$.
+\end{theorem}
+
+\begin{definition}
+    [Simple Curve]
+    A curve $\gamma$ is \textbf{simple} if $\gamma(t_1) = \gamma(t_2) \implies t_1 = t_2$ for $t_1, t_2 \neq a, b$.
+\end{definition}
+\begin{definition}
+    [Closed Curve]
+    A curve $\gamma$ is \textbf{closed} if $\gamma(a) = \gamma(b)$. So if the end point meets the starting point.
+\end{definition}
+
+\begin{remark}
+    We can \textit{ignore} the parametrization and talk about the curve $$Image(\gamma) \subset \mathbb{C}$$ as a subset of $\mathbb{C}$.
+\end{remark}
+
+\begin{definition}
+    [$C^1$/Smooth Curve]
+    A parametrized curve is $C^1$ if $\gamma'(t)$ if
+    $$\gamma '(t) = x'(t) + iy'(t)$$ exists $\forall t \in [a,b]$ and is continuous.
+\end{definition}
+
+\begin{remark}
+    Here, $\gamma'(a), \gamma'(b)$ are the 1-sided derivatives.
+\end{remark}
+
+\begin{definition}
+    [Piecewise $C^1$/Smooth Curve]
+    $$\text{if } \exists a = t_0 < t_1 < \ldots < t_n = b \text{ such that } \gamma |_{[t_i, t_{i+1}]} \text{ is } C^1$$
+\end{definition}
+
+\section{Line Integrals}
+\begin{definition}
+    [Line Integral]
+    if $g = u + iv, (u,v) \in \mathbb{R}^2$ is a complex-valued function and $\gamma$ is piecewise $C^1$, then the line integral of $g$ along $\gamma$ is
+    $$\int_{\gamma} g(z) dz = \sum_{i=0}^{n-1}\int_{i}^{i+1} g(\gamma(t)) \gamma'(t) dt$$
+    Where
+    \begin{align*}
+        g(\gamma(t)) \gamma'(t) & = ux' - vy' + ivx' + iuy'                        \\
+                                & = (u(\gamma(t)) + iv(\gamma(t)))(x'(t) + iy'(t)) \\
+    \end{align*}
+    is complex multiplication
+\end{definition}
+
+\begin{theorem}
+    [Length of a Curve]
+    If $\gamma$ is a piecewise $C^1$ curve, then the length of $\gamma$ is
+    $$\text{Length}(\gamma) = \sum_{i = 0}^{n-1}\int_{t_i}^{t_{i + 1}} |\gamma'(t)| dt$$
+    So we have
+    $$ |\int_{\gamma}g |\leq \max_{z \in \gamma}|g(z)| \cdot \text{Length}(\gamma) $$
+\end{theorem}
+
+\begin{theorem}
+    [Green's Theorem]
+    Say $ \Omega \subset \mathbb{C} $ such that $\partial \Omega$ is a finite collection of piecewise $C^1$ closed simple curves. If $g = u + iv$ is $C^1$ on $\Omega$, then
+    % $$\int_{\partial \Omega} g = \int_{\Omega} \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} \right) dxdy$$
+    % Where $\partial \Omega$ is the boundary of $\Omega$.
+
+    if $ = p + iq$ is differentiable in $\Omega$, then ($\Re{p, q}$ have $1^{st}$ order derivatives). Then
+    $$\int_{\partial \Omega} f = i \int_{\Omega} \left( \frac{\partial f}{\partial x} - \frac{\partial f}{\partial y} \right) dxdy$$
+    Where $\partial \Omega$ is the boundary of $\Omega$.
+\end{theorem}
+
+\begin{corollary}
+    If $dz = dx + idy$, then
+    \begin{align*}
+        \Re(fdz) & = \Re(f)dx - \Im(f)dy \\
+                 & = pdx - qdy           \\
+        \Re{(i \left(\frac{\partial f}{\partial x} + \frac{i \partial f}{\partial y}\right))} = - \frac{\partial q}{\partial x} - \frac{\partial p}{\partial y}
+    \end{align*}
+    So
+    \begin{align*}
+        \int_{\partial \Omega} pdx + qdy = \left(
+        \int_{\Omega} \left( \frac{\partial q}{\partial x} + \frac{\partial p}{\partial y} \right) dxdy
+        \right)
+    \end{align*}
+\end{corollary}
+
+\begin{remark}
+    Orient $\partial \Omega$ always on the left (in the counter-clockwise direction outsides, conterclockwise insides) as we walk along $\partial \Omega$ (say $\partial \Omega$ is positively oriented).
+\end{remark}
+
+\begin{example}
+    [Very Important Example]
+    Let $\gamma$ be a simple, closed piecewise $C^1$ curve. such that $\gamma = \partial \Omega$ for some $\Omega \subset \mathbb{C}$. Then for $ p \notin \Omega$,
+    $$ \frac{1}{2\pi i} \int_{\gamma} \frac{dz}{z - p} = \begin{cases}
+            1 & \text{if } p \in \Omega    \\
+            0 & \text{if } p \notin \Omega
+        \end{cases} $$
+    \begin{proof}
+        1) Assume $p$ not in $\Omega$, then $\frac{1}{z - p}$ is differentiable in $\Omega$ and $\partial \Omega$ is a simple closed curve. So by Green's Theorem,
+        $$ \int_{\partial \Omega} \frac{dz}{z - p} = i \int_{\Omega} \left( \frac{\partial}{\partial x} \frac{1}{z - p} - i\frac{\partial}{\partial y} \frac{1}{z - p} \right) dxdy = 0 $$
+    \end{proof}
+    Let $D_{\epsilon}(p)$ be the disk of radius $\epsilon$ centered at $p$, essentially, we want to remove the point stopping us from applying Green's Theorem.
+    $$ \Omega_{\epsilon} = \Omega \setminus D_{\epsilon}(p) $$
+    If $\epsilon$ is sufficiently small, $\Omega_{\epsilon}$ is still a domain. So by Green's Theorem,
+    \begin{align*} \int_{\partial \Omega_{\epsilon}} \frac{dz}{z - p}                                         & = 0                                                                    \\
+               \int_{\partial \Omega} \frac{dz}{z - p} - \int_{\partial D_{\epsilon}(p)} \frac{dz}{z - p} & = 0                                                                    \\
+               \int_{\partial \Omega} \frac{dz}{z - p}                                                    & = \int_{\partial D_{\epsilon}(p)} \frac{dz}{z - p}                     \\
+               \rightarrow \partial D_{\epsilon}                                                          & = p + \epsilon e^{it} \quad 0 \leq t \leq 2\pi                         \\
+               \int_{\partial D_{\epsilon}(p)} \frac{dz}{z - p}                                           & = \int_{0}^{2\pi} \frac{i\epsilon e^{it}}{\epsilon e^{it}} dt = 2\pi i \\
+               \int_{\partial \Omega} \frac{dz}{z - p}                                                    & = 2\pi i
+    \end{align*}
+\end{example}

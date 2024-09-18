@@ -1,0 +1,191 @@
+\chapter{Analytic Functions and the Cauchy-Riemann Equations}
+
+\section{Analytic Functions}
+
+\begin{definition}
+    [Complex Differentiability]
+    A complex function $f(z): D \to \mathbb{C}$, where $D$ is a domain, is \textbf{complex differentiable} at $z_0 \in D$ if
+    $$f'(z_0) = \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} \quad \text{exists}$$
+    $$ = \lim_{h} \frac{f(z_0 + h) - f(z_0)}{h} \quad h \in \mathbb{C}$$
+\end{definition}
+
+\begin{definition}
+    [Analytic]
+    A function $f(z)$ is \textbf{analytic} on a domain $D$ if $f(z)$ is complex differentiable at every point in $D$.
+\end{definition}
+
+\begin{definition}
+    [Entire]
+    A function $f(z)$ is \textbf{entire} if $f(z)$ is analytic on $\mathbb{C}$.
+\end{definition}
+
+\begin{example}
+    [Prove the Power Rule]
+    $$f(z) = z^n \quad n \in \mathbb{Z}$$
+    $f$ is entire and
+    $$f'(z) = nz^{n-1}$$
+\end{example}
+\begin{proof}
+    \begin{align*}
+        \lim_{h \to 0} \frac{f(z + h) - f(z)}{h} & = \lim_{h \to 0} \frac{(z + h)^n - z^n}{h}                               \\
+                                                 & = \lim_{h \to 0} \frac{\sum_{k=0}^{n} \binom{n}{k} z^{n-k} h^k - z^n}{h} \\
+                                                 & = \lim_{h \to 0} \sum_{k=0}^{n} \binom{n}{k} z^{n-k} h^{k-1}             \\
+                                                 & = \binom{n}{1} z^{n-1}                                                   \\
+                                                 & = nz^{n-1}                                                               \\
+    \end{align*}
+\end{proof}
+
+\begin{example}
+    Prove that $f(z) = \overline{z}$ is not complex differentiable at any point.
+\end{example}
+\begin{proof}
+    In homework 2...
+\end{proof}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{| m{5cm} | m{9cm} |}
+        \hline
+        \textbf{Property}       & \textbf{Description}                                                                                                                                                                               \\
+        \hline
+        Linearity               & The derivative of a sum is the sum of the derivatives: \[ (f + g)'(z) = f'(z) + g'(z) \] The derivative of a constant multiple is the constant multiple of the derivative: \[ (cf)'(z) = cf'(z) \] \\
+        \hline
+        Product Rule            & The derivative of a product is given by: \[ (fg)'(z) = f'(z)g(z) + f(z)g'(z) \]                                                                                                                    \\
+        \hline
+        Quotient Rule           & The derivative of a quotient is given by: \[ \left( \frac{f}{g} \right)'(z) = \frac{f'(z)g(z) - f(z)g'(z)}{g(z)^2} \]                                                                              \\
+        \hline
+        Chain Rule              & The derivative of a composition is given by: \[ (f \circ g)'(z) = f'(g(z))g'(z) \]                                                                                                                 \\
+        \hline
+        Exponential Function    & The derivative of the exponential function is: \[ \frac{d}{dz} e^z = e^z \]                                                                                                                        \\
+        \hline
+        Logarithmic Function    & The derivative of the logarithmic function is: \[ \frac{d}{dz} \log z = \frac{1}{z} \]                                                                                                             \\
+        \hline
+        Power Rule              & The derivative of a power function is: \[ \frac{d}{dz} z^n = nz^{n-1} \]                                                                                                                           \\
+        \hline
+        Trigonometric Functions & The derivatives of the trigonometric functions are: \[ \frac{d}{dz} \sin z = \cos z \] \[ \frac{d}{dz} \cos z = -\sin z \]                                                                         \\
+        \hline
+        Hyperbolic Functions    & The derivatives of the hyperbolic functions are: \[ \frac{d}{dz} \sinh z = \cosh z \] \[ \frac{d}{dz} \cosh z = \sinh z \]                                                                         \\
+        \hline
+    \end{tabular}
+    \caption{Properties of Complex Derivatives}
+    \label{table:complex_derivative_properties}
+\end{table}
+
+\begin{example}
+    [Prove the Derivative of the Exponential Function]
+    $$f(z) = e^z$$
+\end{example}
+
+\begin{proof}
+    \begin{align*}
+        \lim_{h \to 0} \frac{e^{z + h} - e^z}{h} & = \lim_{h \to 0} \frac{e^z e^h - e^z}{h}                          \\
+                                                 & = e^z \lim_{h \to 0} \frac{e^h - 1}{h}                            \\
+                                                 & = e^z \lim_{h \to 0} \frac{1 + h + \frac{h^2}{2} + \cdots - 1}{h} \\
+                                                 & = e^z \lim_{h \to 0} 1 + \frac{h}{2} + \cdots                     \\
+    \end{align*}
+\end{proof}
+
+\section{Cauchy-Riemann Equations}
+\begin{lemma}
+    [$h$ can approach from any direction]
+    If $f(z)$ is differentiable then $$\exists\lim_{h \to 0} \frac{f(z + h) - f(z)}{h} = f(z) \in \mathbb{C}$$
+    And yield the same result for any $h \in \mathbb{C}$.
+\end{lemma}
+
+
+\begin{theorem}
+    [Cauchy-Riemann Equations]
+    If $f(z) = u(x,y) + iv(x,y)$ is differentiable at $z = x + iy$, then
+    $$\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{and} \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}$$
+\end{theorem}
+
+
+\begin{proof}
+    We compute $h$ in two ways:
+    \begin{align*}
+        h_1 & = is \quad s \in \mathbb{R} \\
+        h_2 & = s \in \mathbb{R}
+    \end{align*}
+    \begin{align*}
+          & \lim_{h\to 0}\frac{f(z + is) - f(z)}{is}                                       \\
+        = & lim_{h\to 0}\frac{u(x, y + s) + iv(x, y + s) - u(x, y) - iv(x, y)}{is}         \\
+        = & lim_{h\to 0}\frac{u(x, y + s) - u(x, y)}{is} + \frac{v(x, y + s) - v(x, y)}{s} \\
+        = & \frac{1}{i}(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial y})
+    \end{align*}
+
+    \begin{align*}
+          & \lim_{h\to 0}\frac{f(z + s) - f(z)}{s}                                         \\
+        = & lim_{h\to 0}\frac{u(x + s, y) + iv(x + s, y) - u(x, y) - iv(x, y)}{s}          \\
+        = & lim_{h\to 0}\frac{u(x + s, y) - u(x, y)}{s} + i\frac{v(x + s, y) - v(x, y)}{s} \\
+        = & \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x}
+    \end{align*}
+
+    So
+    \begin{align*}
+        \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} & = \frac{1}{i}(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial y}) \\
+        \frac{\partial u}{\partial x} - i\frac{\partial u}{\partial y} & = \frac{\partial v}{\partial y}                                              \\
+        \frac{\partial u}{\partial x}                                  & = \frac{\partial v}{\partial y}                                              \\
+        \frac{\partial u}{\partial y}                                  & = -\frac{\partial v}{\partial x}                                             \\
+    \end{align*}
+
+
+\end{proof}
+
+\begin{theorem}
+    [Harmonic Functions]
+    If $f(z) = u(x,y) + iv(x,y)$ is complex differentiable, then
+    $$ \Delta u  = \Delta v = 0$$
+    And $u, v$ are \textbf{harmonic functions} and satisfy Cauchy-Riemann equations. Thus they are \textbf{harmonic conjugates}.
+    Where $\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}$ is the Laplacian operator.
+\end{theorem}
+
+\begin{corollary}
+    If a function $f(z)$ is once complex differentiable, then it is infinitely differentiable and analytic.
+\end{corollary}
+
+\begin{proof}
+    Cauchy-Riemann equations give us the partial derivatives of $u, v$.
+    $$
+        \begin{cases}
+            \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \\
+            \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+        \end{cases}$$
+    \begin{align*}                                                                                                                                                                                                                      \\
+        \text{Take} \quad \frac{\partial}{\partial x}(1) \quad \frac{\partial^2 u}{\partial x^2} & = \frac{\partial}{\partial x} \frac{\partial u}{\partial x} = \frac{\partial}{\partial x} \frac{\partial v}{\partial y} = \frac{\partial}{\partial y} \frac{\partial v}{\partial x} = \frac{\partial}{\partial y} \frac{\partial u}{\partial y} = \frac{\partial^2 u}{\partial y^2} \\
+        \text{Take} \quad \frac{\partial}{\partial y}(2) \quad \frac{\partial^2 u}{\partial y^2} & = -\frac{\partial}{\partial y} \frac{\partial v}{\partial x} = -\frac{\partial}{\partial x} \frac{\partial v}{\partial y} = -\frac{\partial}{\partial x} \frac{\partial u}{\partial y} = -\frac{\partial^2 u}{\partial x^2}                                                         \\
+                                                                                                 & \Delta u = 0
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    Let $f = u + iv$ and assume $u, v, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial v}{\partial x}, \frac{\partial v}{\partial y}$ are defined and continuous on a disc around $z_0$. If $u, v$ satisfy the Cauchy-Riemann equations at $z_0$, then $f$ is complex differentiable at $z_0$.
+    $$\frac{\partial f}{\partial z} = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x}$$
+\end{theorem}
+
+\begin{proof}
+    Using the taylor expansion of $f(z)$
+    \begin{align*}
+        \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h} & = \lim_{h \to 0} \frac{u(x_0 + h, y_0) + iv(x_0 + h, y_0) - u(x_0, y_0) - iv(x_0, y_0)}{h}          \\
+                                                     & = \lim_{h \to 0} \frac{u(x_0 + h, y_0) - u(x_0, y_0)}{h} + i\frac{v(x_0 + h, y_0) - v(x_0, y_0)}{h} \\
+                                                     & = \frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x}
+    \end{align*}
+\end{proof}
+
+
+\begin{example}
+    [Prove the Derivative of the Logarithmic Function]
+    Let $D \in \mathbb{C}$ be a domain o which there is a single-valued branch of $\log z$.
+\end{example}
+
+\begin{proof}
+    When $\arctan(y/x) \in (\theta_0, \theta + \pi]$ and $\arctan(y/x)$ is not in $D$.
+    $$u = \frac{1}{2} \log(x^2 + y^2) \quad v = \arctan(y/x)$$
+    Then
+    \begin{align}
+        \frac{\partial u}{\partial x}            & = \frac{1}{2(x^2+ y^2)} \cdot 2x = \frac{x}{x^2 + y^2} \\
+        \frac{\partial v}{\partial y}            & = \frac{1}{1 + \frac{y}{x}^2} \times \frac{1}{x}       \\
+                                                 & = \frac{x}{x^2 + y^2}                                  \\
+        \therefore \frac{\partial u}{\partial x} & = \frac{\partial v}{\partial y}
+    \end{align}
+    INCOMPLETE
+\end{proof}
