@@ -1,0 +1,100 @@
+\chapter{Lecture 6: Power Series}
+
+\section{Introduction}
+\begin{definition}
+    [Power Series]
+    A power series in $z$ is a n infinite series of the form:
+    $$\sum_{n=0}^{\infty} a_n (z-z_0)^n$$
+    where $a_n$ are complex numbers, $z$ is a complex variable, and $z_0 \in \mathbb{C}$ is the centre.
+\end{definition}
+
+\begin{theorem}
+    [Absolute Convergence of Power Series]
+    Suppose $\exists z_1 \neq z_0 | \sum_{n=0}^{\infty} a_n (z_1-z_0)^n$ converges. Then for each $z \in \mathbb{C} : |z-z_0| < |z_1 - z_0|$, the series $\sum_{n=0}^{\infty} a_n (z-z_0)^n$ converges \textbf{absolutely}.
+\end{theorem}
+
+\begin{proof}
+    Since $\sum_{n=0}^{\infty} a_n (z_1-z_0)^n$ converges, we know:
+    \begin{equation}\lim_{n \to \infty} a_n (z_1-z_0)^n = 0 \label{eq:1}\end{equation}
+    \textit{so}: $|a_n| |z_1 - z_0|^n \leq M \forall n$ as $n \to \infty$.\\
+    by \ref{eq:1}, $\exists N \in \mathbb{N} | n \geq N \implies |a_n| |z_1 - z_0|^n \leq 1$.\\
+    So
+    \begin{align*}
+        |a_n| |z-z_0|^n & = \frac{|a_n||z_1 - z_0}{|z_1 - z_0|} |z-z_0|^n \\ & \leq M
+    \end{align*}
+    Let $\rho = \frac{|z-z_0|}{|z_1 - z_0|} < 1$. So
+    \begin{align*}
+        \sum_{n=0}{\infty} |a_n||z-z_0| \leq M \sum_{n =0}^{\infty}\rho^n
+    \end{align*}
+    Since $\rho < 1$, the geometric series $\sum_{n=0}^{\infty} \rho^n$ converges. Hence so does $\sum_{n=0}^{\infty} |a_n||z-z_0|^n$.\\
+    \textbf{Absolute Convergence}
+\end{proof}
+
+\begin{definition}
+    [Absolute Convergence]
+    A series $\sum_{n=0}^{\infty} a_n$ is said to converge absolutely if $\sum_{n=0}^{\infty} |a_n|$ converges.
+\end{definition}
+
+\begin{definition}
+    [Radius of Convergence]
+    The radius of convergence of a power series $\sum_{n=0}^{\infty} a_n (z-z_0)^n$ is the number $R$ such that the series converges absolutely for $|z-z_0| < R$ and diverges for $|z-z_0| > R$. \\
+    There are three possibilities:
+    \begin{enumerate}
+        \item Converges only for $z = z_0$ (i.e. $R = 0$)
+        \item Converges for all $z \in \mathbb{C}$ (i.e. $R = \infty$)
+        \item Converges for some $z \neq z_0$ (i.e. $0 < R < \infty$)
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+    Assume $z^\prime, z^{\prime\prime} \in \mathbb{C}$ are points such that:
+    \begin{itemize}
+        \item $\sum_{n=0}^{\infty} a_n (z^\prime - z_0)^n$ converges
+        \item $\sum_{n=0}^{\infty} a_n (z^{\prime\prime} - z_0)^n$ diverges
+    \end{itemize}
+
+    There is a unique $R > 0$ such that:
+    \begin{itemize}
+        \item If $|z - z_0| < R$, then $\sum_{n=0}^{\infty} a_n (z - z_0)^n$ converges
+        \item if $|z - z_0| > R$, then $\sum_{n=0}^{\infty} a_n (z - z_0)^n$ diverges
+    \end{itemize}
+    $R$ is called the radius of convergence.
+\end{lemma}
+
+\begin{remark}
+    The behaviour o on the circle of convergence $|z - z_0| = R$ can be complicated! The series may converge or diverge, or both (depending on where on the circle you are).
+\end{remark}
+
+\section{Computing the Radius of Convergence}
+
+\begin{theorem}
+    Suppose $\sum_{n=0}^{\infty} a_n (z - z_0)^n$ is a power series with radius of convergence $ 0 < R \leq \infty$. Then:
+    \begin{enumerate}
+        \item $\frac{1}{R} = \lim_{n \to \infty}\left| \frac{a_{n+1}}{a_n} \right|$
+        \item If $\lim_{n \to \infty} \root{n}\of{|a_n|}  = L$ exists, then $R = \frac{1}{L}$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Assume
+    \begin{align*}
+        \exists \lim_{n \to \infty}\left| \frac{a_{n+1}}{a_n} \right| & = L
+    \end{align*}
+
+    Then:
+    \begin{align*}
+        \lim_{n \to \infty}\left| \frac{(z-z_0)^{n+1}a_{n+1}}{(z-z_0)^n a_n} \right| = |z - z_0 | L
+    \end{align*}
+
+    if $|z - z_0|L< \frac{1}{L}$, then $|z - z_0| L < 1$ and the series converges by the ratio test, and if $|z - z_0|L > \frac{1}{L}$, then the series diverges by the ratio test.\\
+
+    Similarly, if $\lim_{n \to \infty} \root{n}\of{|a_n|} = L$ exists, then:
+    \begin{align*}
+        \lim_{n \to \infty} \root{n}\of{|a_n (z - z_0)^n|} & = |z - z_0| L
+    \end{align*}
+    If $|z - z_0|L < 1 \to R = |z - z_0| < \frac{1}L$, then the series converges by the root test, and if $|z - z_0|L > 1$, then the series diverges by the root test.
+\end{proof}
+
+\begin{remark}
+    If $\lim_{n \to \infty}\left| \frac{a_{n+1}}{a_n} \right|$ does not exist, then $R = 0$
+\end{remark}

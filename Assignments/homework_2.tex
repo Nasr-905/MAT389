@@ -1,0 +1,266 @@
+\chapter{Homework 2}
+
+\begin{example}
+    [Fisher, Section 1.6, Problem 2]
+
+    Compute the following line integral:
+
+    $$\int_\gamma e^zdz$$
+
+    where $\gamma$ is the line segment from 0 to $z_0.$\\
+
+    We want some path that approaches $z_0$ so we parametrize $\gamma$ as $\gamma(t) = z_0t$ for $t \in [0,1]$.
+    \begin{align*}
+        \int_\gamma e^zdz & = \int_0^1 e^{z_0t}z_0dt                     \\
+                          & = z_0 \int_0^1 e^{z_0t}dt                    \\
+                          & = z_0 \left[\frac{e^{z_0t}}{z_0}\right]_0^1  \\
+                          & = z_0 \left[\frac{e^{z_0} - e^0}{z_0}\right] \\
+                          & = e^{z_0} - 1
+    \end{align*}
+\end{example}
+
+
+\begin{example}
+    [Fisher, Section 1.6, Problem 4]
+
+    Compute the following line integral:
+
+    $$\int_\gamma\frac1{z+4}dz$$
+
+    where $\gamma$ is the circle of radius 1 centered at -4, oriented counterclockwise.\\
+
+    \hrule
+    \vspace{0.5cm}
+
+    We first recognize that $e^{i\theta} = \cos\theta + i\sin\theta$ represents a point on a unit circle. So we can parametrize $\gamma$ as $\gamma(t) = -4 + e^{it}$ for $t \in [0,2\pi]$.
+
+    \begin{align*}
+        \int_\gamma\frac1{z+4}dz & = \int_0^{2\pi}\frac{1}{(-4 + e^{it})+4}ie^{it}dt \\
+                                 & = \int_0^{2\pi}\frac{1}{e^{it}}ie^{it}dt          \\
+                                 & = \int_0^{2\pi}idt                                \\
+                                 & = 2\pi i
+    \end{align*}
+
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.6, Problem 10]
+
+    Let $f=u+iv$ be a continuous functions and $\gamma(t)=x(t)+iy(t)$ be a piecewise $C^1$ curve. Show that
+
+    $$\mathrm{Re}\left(\int_\gamma f(z)dz\right)=\int_\gamma udx-vdy$$
+
+    and,
+
+    $$\mathrm{Im}\left(\int_\gamma f(z)dz\right)=\int_\gamma vdx+udy$$
+
+    where $dx=x^{\prime}(t)dt$ and $dy=y^{\prime}(t)dt$.\\
+
+    \hrule
+    \vspace{0.5cm}
+    We know that $f(z) = u+iv$ and $dz = dx + idy$. So we can write the integral as:
+    \begin{align*}
+        \int_\gamma f(z)dz & = \int_\gamma (u+iv)(dx+idy)                                              \\
+                           & = \int_\gamma udx + i\int_\gamma vdx + i\int_\gamma udy - \int_\gamma vdy
+    \end{align*}
+
+    Taking the real part of the integral, we get:
+
+    \begin{align*}
+        \mathrm{Re}\left(\int_\gamma f(z)dz\right) & = \int_\gamma udx - \int_\gamma vdy
+    \end{align*}
+
+    Taking the imaginary part of the integral, we get:
+
+    \begin{align*}
+        \mathrm{Im}\left(\int_\gamma f(z)dz\right) & = \int_\gamma vdx + \int_\gamma udy
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 1.6, Problem 16]
+
+    Let $\gamma$ be a piecewise $C^1$, simple closed curve. Let $z_0$ be a point which does not lie on $\gamma.$ Show that
+
+    $$\int_\gamma\frac{dz}{(z-z_0)^m}=0\quad\mathrm{for~}m=2,3,4,\ldots $$\\
+
+    \hrule
+    \vspace{0.5cm}
+
+
+    Let's see if we can apply Cauchy's Integral Theorem, which says that if $f$ is analytic on a simply connected domain $D$ and $\gamma$ is a simple closed curve in $D$, then $\int_\gamma f(z)dz = 0$. \\
+    Say $\exists D | z_0 \notin D$ and $D$ is simply connected. Say also that $\gamma$ is a simple closed curve in $D$. Then we can write $f(z) = \frac{1}{(z-z_0)^m}$ for $m=2,3,4,\ldots$. Then $f(z)$ is analytic on $D$ and $\gamma$ is a simple closed curve in $D$. So by Cauchy's Integral Theorem, $\int_\gamma f(z)dz = 0 \quad \forall m=2,3,4,\ldots$.
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.1, Problem 4]
+
+    Find the derivative of the function $f(z)=(\cos(z^2))^3.$\\
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can write $f(z) = (\cos(z^2))^3 = \cos^3(z^2)$. So we can apply the chain rule to get:
+
+    \begin{align*}
+        f^{\prime}(z) & = 3\cos^2(z^2)\left(-\sin(z^2)\right)2z \\
+                      & = -6z\cos^2(z^2)\sin(z^2)
+    \end{align*}
+\end{example}
+
+
+
+\begin{example}
+    [Fisher, Section 2.1, Problem 6]
+
+    Find the derivative of the function $(\text{Log}(z))^3$ on the plane minus the negative reals.\\
+
+    \hrule
+    \vspace{0.5cm}
+
+    Say $w = \text{Log}(z) = \ln|z| + i\arg(z) \quad -\pi < \arg(z) < \pi$.
+    We can write $f(z) = (\text{Log}(z))^3 = (w)^3$. So:
+    \begin{align*}
+        \frac{dw}{dz} & = \frac{d}{dz}(\ln|z| + i\arg(z)) \\
+        \frac{dw}{dz} & =\frac{1}{z}
+    \end{align*}
+
+    So we can apply the chain rule to get:
+    \begin{align*}
+        f^{\prime}(z) & = 3(w)^2\frac{dw}{dz}           \\
+                      & = 3(\text{Log}(z))^2\frac{1}{z}
+    \end{align*}
+\end{example}
+
+
+\begin{example}
+    [Fisher, Section 2.1, Problem 14]
+
+    Let $P(z)=A(z-z_1)\cdots(z-z_n)$, where $A,z_1,\ldots,z_n$ are complex numbers. Show that
+
+    $$\frac{P^{\prime}(z)}{P(z)}=\sum_{j=1}^n\frac1{z-z_j}$$
+
+    for any $z\neq z_1,\ldots,z_n.$ \\
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can write $P(z) = A(z-z_1)\cdots(z-z_n)$. So we can apply the product rule to get:
+
+    \begin{align*}
+        P^{\prime}(z) & = A\left(\prod_{j=1}^n(z-z_j)\right)^{\prime}      \\
+                      & = A\sum_{j=1}^n\left(\prod_{k\neq j}(z-z_k)\right)
+    \end{align*}
+
+    Because we know $d(z-z_n) = dz$. So we can write:
+
+    \begin{align*}
+        \frac{P^{\prime}(z)}{P(z)} & = \frac{A\sum_{j=1}^n\left(\prod_{k\neq j}(z-z_k)\right)}{A\prod_{j=1}^n(z-z_j)} \\
+                                   & = \sum_{j=1}^n\frac{\prod_{k\neq j}(z-z_k)}{\prod_{j=1}^n(z-z_j)}                \\
+                                   & = \sum_{j=1}^n\frac1{z-z_j}
+    \end{align*}
+
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.1, Problem 18]
+
+    Show that $f(z)=\bar{z}$ is not analytic on any domain \\
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can write $f(z) = \bar{z} = x-iy$. So we can write $u(x,y) = x$ and $v(x,y) = -y$. We can apply the Cauchy-Riemann equations to get:
+
+    \begin{align*}
+        u_x & = 1 = -v_y \\
+        u_y & = 0 = v_x
+    \end{align*}
+
+    So the Cauchy-Riemann equations are not satisfied. So $f(z) = \bar{z}$ is not analytic on any domain.
+
+\end{example}
+
+
+\begin{example}
+    [Fisher, Section 2.1, Problem 20]
+
+    Let $f = u+iv$ and suppose that $f$ is analytic. In each of the following, find $v$, given $u$:
+    \begin{enumerate}
+        \item $u = x^2-y^2$
+        \item $u = \frac{x}{x^2+y^2}$
+    \end{enumerate}
+
+    \hrule
+    \vspace{0.5cm}
+
+    Firstly, we remind ourselves of the Cauchy-Riemann equations:
+    \begin{align*}
+        \frac{\partial u}{\partial x} & = \frac{\partial v}{\partial y}  \\
+        \frac{\partial u}{\partial y} & = -\frac{\partial v}{\partial x}
+    \end{align*}
+    \begin{enumerate}
+        \item Say $u = x^2-y^2$. We can apply the Cauchy-Riemann equations to get:
+              \begin{align*}
+                  \frac{\partial u}{\partial x} & = \frac{\partial v}{\partial y} \\
+                                                & = 2x                            \\
+                  \int \partial v               & = 2x \int \partial y            \\
+                  v (x,y)                       & = 2xy + h(x)                    \\
+              \end{align*}
+              \begin{align*}
+                  \frac{\partial u}{\partial y} & = -\frac{\partial v}{\partial x} \\
+                                                & = -(-2y)                         \\
+                                                & = 2y                             \\
+                  \int \partial v               & = 2y \int \partial x             \\
+                  v (x,y)                       & = 2xy + h(y)                     \\
+              \end{align*}
+
+              So $h(x) = h(y) = 0$. Therefore $v(x,y) = 2xy + c$. Where $c$ is a constant in $\mathbb{C}$.
+        \item Say $u = \frac{x}{x^2+y^2}$. We can apply the Cauchy-Riemann equations to get:
+
+              \begin{align*}
+                  \frac{\partial u}{\partial x} & = \frac{\partial v}{\partial y}               \\
+                                                & = \frac{y^2-x^2}{(x^2+y^2)^2}                 \\
+                  \int \partial v               & = \int \frac{y^2-x^2}{(x^2+y^2)^2} \partial y \\
+                  v (x,y)                       & = -\frac{y}{x^2+y^2} + h(x)                   \\
+              \end{align*}
+
+              \begin{align*}
+                  \frac{\partial u}{\partial y} & = -\frac{\partial v}{\partial x}          \\
+                                                & = \frac{2xy}{(x^2+y^2)^2}                 \\
+                  \int \partial v               & = \int \frac{2xy}{(x^2+y^2)^2} \partial x \\
+                  v (x,y)                       & = -\frac{y}{x^2+y^2} + h(y)               \\
+              \end{align*}
+              So $h(x) = h(y) = 0$. Therefore $v(x,y) = -\frac{y}{x^2+y^2} + c$. Where $c$ is a constant in $\mathbb{C}$.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.1, Problem 26]
+
+    Suppose that $\gamma$ is a piecewise $C^{1}$ simple closed curve and that $u$ is a continuous function on $\gamma$. Let $D$ be a domain disjoint from $\gamma$,
+    and define a function $h$ on $D$ by the rule
+
+    $$h(z)=\int_\gamma\frac{u(\xi)}{\xi-z}d\xi $$
+
+    Show that $h$ is analytic in $D.$ \\
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can write $h(z) = \int_\gamma\frac{u(\xi)}{\xi-z}d\xi$. We can apply the Cauchy Integral Formula to get:
+
+    \begin{align*}
+        \frac{d}{dz}h(z)         & = \frac{d}{dz}\int_\gamma\frac{u(\xi)}{\xi-z}d\xi                                  \\
+                                 & = \int_\gamma\frac{\partial}{\partial z}\left(\frac{u(\xi)}{(\xi-z)^2}\right) d\xi \\
+        \therefore h^{\prime}(z) & = \int_\gamma\frac{u(\xi)}{(\xi-z)^2} d\xi
+    \end{align*}
+
+    Since the function $\frac{u(\xi)}{(\xi-z)^2}$ is continuous with respect to $z$ in $D$ and the curve $\gamma$ is piecewise $C^1$, the
+    integral defines a smooth function of $z$ in $D$ .Therefore, $h^{\prime}(z)$ exists for all $z\in D$,and $h(z)$ is
+
+    differentiable.
+
+    Moreover, the existence and continuity of $h^{\prime}(z)$ imply that $h(z)$ is analytic in $D$ ,as $h(z)$ is
+    differentiable and its derivative is continuous in $D.$
+\end{example}
