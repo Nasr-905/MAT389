@@ -1,0 +1,82 @@
+\chapter{Homework 5} % Main chapter title
+
+
+\begin{example}
+    Solve the integral:
+    $$f(z) = \frac{z^2}{1 - z^2}, \quad z_0 = 1$$
+
+    \textbf{Solution:}
+    \begin{align*}
+        2\pi i \text{Res}(f, z_0) & = \int_{\gamma} f(z) dz                             \\
+                                  & = \int_{\gamma} \frac{z^2}{(z - 1)(z + 1)} dz       \\
+                                  & = \int_{\gamma} \frac{-\frac{z^2}{z + 1}}{z - 1} dz
+    \end{align*}
+    Say, $g(z) = -\frac{z^2}{z + 1}$, then using Cauchy's Integral Formula:
+    \begin{align*}
+        2\pi i \text{Res}(f, z_0) & = \int_{\gamma} \frac{-\frac{z^2}{z + 1}}{z - 1} dz \\
+                                  & = -2\pi i g(1) = -\pi i                             \\
+                                  & = 2\pi i \left( -\frac{1}{2} \right) = -\pi i       \\
+                                  & \therefore \text{Res}(f, z_0) = -\frac{\pi i}{2}
+    \end{align*}
+\end{example}
+
+\begin{example}
+    Solve the integral:
+    $$\int_{-\infty}{\infty} \frac{x^2}{x^4 + 5x^2 + 4} dx$$
+
+    \textbf{Solution:}
+
+    First, we factor the denominator:
+    \begin{align*}
+        x^4 + 5x^2 + 4 & = (x^2 + 4)(x^2 + 1)             \\
+                       & = (x + 2i)(x - 2i)(x + i)(x - i)
+    \end{align*}
+    We only care about two residues here, because the other two are not in the upper half plane. So we have:
+    \begin{align*}
+        \int_{\gamma_R}\frac{z^2}{z^4 + 5z^2 + 4} dz & = \frac{1}{2\pi i}(\text{Res}(f, i) + \text{Res}(f, 2i))                              \\
+                                                     & = 2\pi (\frac{1}{6} - \frac{2i}{6}) = \frac{-\pi}{3} + \frac{2\pi}{3} = \frac{\pi}{3}
+    \end{align*}
+    Next, let's find the residues at $i$ and $2i$:
+    \begin{align*}
+        \text{Res}(f, i) & = \frac{1}{2\pi i}\int_{\gamma} f(z) dz = \frac{1}{2\pi i}\int_{\gamma} \frac{z^2}{(z + 2i)(z - 2i)(z + i)(z - i)} dz \\
+                         & = \frac{1}{2\pi i}\int_{\gamma} \frac{\frac{z^2}{(z + 2i)(z - 2i)(z+2i)}}{z-i}dz                                      \\
+                         & = \frac{1}{2\pi i}2\pi g(i) = \frac{i^2}{(i + 2i)(i - 2i)(i + 2i)} = -\frac{1}{6}
+    \end{align*}
+    \begin{align*}
+        \text{Res}(f, 2i) & = \frac{1}{2\pi i}\int_{\gamma} f(z) dz = \frac{1}{2\pi i}\int_{\gamma} \frac{z^2}{(z + 2i)(z - 2i)(z + i)(z - i)} dz \\
+                          & = \frac{1}{2\pi i}\int_{\gamma} \frac{\frac{z^2}{(z + 2i)(z - i)(z+2i)}}{z-2i}dz                                      \\
+                          & = g(2 i)  = \frac{(2 - i)^2}{(2i + 2i)(2i - i)(2i + i)} = \frac{4}{12i}
+    \end{align*}
+    \begin{align*}
+        P(z) & = a_nz^n + a_{n-1}z^{n-1} + \cdots + a_0                      \\
+             & \lim_{|z| \to \infty} \left| \frac{P(z)}{z^n} \right| = |a_n| \\
+    \end{align*}
+    $R$ is large enough so that $|f(z)| < \epsilon$ for $|z| > R$, so we have:
+    \begin{align*}
+        \frac{1}{2} |a_n| \leq \left|\frac{P(z)}{z^n}\right| \leq 2|a_n| \\ \quad \text{for} \quad z = \alpha_R (z), \quad |z^n| = R^n \\
+    \end{align*}
+
+    \begin{align*}
+        P(z) & = z^2                                                            \\
+        Q(z) & = z^4 + 5z^2 + 4                                                 \\
+        \left|\frac{P(z)}{Q(z)}\right| \leq \frac{2 |1| R^2}{\frac{1}{2}|1|R^4} \\
+             & = 4R^{-2}
+    \end{align*}
+
+    \begin{align*}
+        \left|\int_{\alpha_R} f(z)dz\right| & \leq \int_{\alpha_R} \left|\frac{P(z)}{Q(z)}\right| dz    \\
+                                            & \leq \int_{\alpha_R} 4R^{-2} dz                           \\
+                                            & = 4R^{-2} \int_{\alpha_R} dz                              \\
+                                            & = 4R^{-2} \pi R                                           \\
+                                            & = \frac{4\pi}{R} \to 0 \quad \text{as} \quad R \to \infty
+    \end{align*}
+\end{example}
+
+\begin{proposition}
+    In general if $f = \frac{P(z)}{Q(z)}$ where $P(z)$ and $Q(z)$ are polynomials and $\deg Q \geq \deg P + 2$, then:
+    \begin{align*}
+        I & = \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} dx   \\
+        I & = 2\pi i \sum_{\text{Im} z > 0} \text{Res}(f, z)
+    \end{align*}
+    ensure that $Q \neq 0$
+\end{proposition}

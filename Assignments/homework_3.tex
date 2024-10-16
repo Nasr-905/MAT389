@@ -1,0 +1,234 @@
+\chapter{Homework 3}
+
+\begin{example}
+    [Fisher, Section 2.2, Problem 2]
+
+    Find the radius of convergence for the series
+
+    $$\sum_{k=0}^\infty\frac{(k!)^2}{(2k)!}(z-2)^k$$
+
+    \hrule
+    \vspace{0.5cm}
+
+    Let $a_k = \frac{(k!)^2}{(2k)!}$, then
+
+    \begin{align*}
+        \lim_{k\to\infty}\left|\frac{a_{k+1}}{a_k}\right| & = \lim_{k\to\infty}\left|\frac{(k+1)!^2}{(2k+2)!}\cdot\frac{(2k)!}{(k!)^2}\right| \\
+                                                          & = \lim_{k\to\infty}\left|\frac{(k+1)^2}{(2k+2)(2k+1)}\right|                      \\
+                                                          & = \lim_{k\to\infty}\left|\frac{k^2+2k+1}{4k^2+6k+2}\right|                        \\
+                                                          & = \lim_{k\to\infty}\left|\frac{1+2/k+1/k^2}{4+6/k+2/k^2}\right|                   \\
+                                                          & = \left|\frac{1}{4}\right| = \frac{1}{4}
+    \end{align*}
+
+    Therefore, the radius of convergence is $R = \frac{1}{1/4} = 4$.
+
+\end{example}
+
+
+\begin{example}
+    [Fisher, Section 2.2, Problem 4]
+
+    Find the radius of convergence for the series
+
+    $$\sum_{k=0}^\infty(-1)^kz^{2k}$$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can relate this to a geometric series with $a = 1$ and $r = -z^2$. The limit of the ratio of consecutive terms is
+    \begin{align*}
+        L = \frac{1}{1 - (-z^2)} = \frac{1}{1 + z^2}
+    \end{align*}
+
+    Provided that $|r| = |-z^2| < 1$. Therefore, the radius of convergence is $R = 1$.
+
+\end{example}
+
+
+\begin{example}
+    [Fisher, Section 2.2, Problem 22]
+
+    (a) If $f(z)=\sum_{n=0}^\infty a_n(z-z_0)^n$ has radius of convergence $R>0$,and if $f(z)=0$ for all $z$ such that $|z-z_0|<r\leq R$, show that all the coefficients are zero (ie. $a_0=a_1=a_2=\cdots=0).$
+    \\
+    (b) if $F(z)=\sum_{n=0}^\infty a_n(z-z_0)^n$ and $G(z)=\sum_{n=0}^\infty b_n(z-z_0)^n$ are convergent and equal on some disc $|z-z_0|<r$,show that
+
+    $a_n=b_n$ for all $n.$
+
+    \hrule
+    \vspace{0.5cm}
+
+    (a)     if $f(z)$ is analytic in a domain $D, z_0 \in D$ and $\{|z-z_0| < R\} \subseteq D$, then $f(z)$ hasa convergent power series expansion about $z_0$ given by:
+    \begin{equation}
+        f(z) = \sum_{n=0}^{\infty} a_n(z-z_0)^n
+    \end{equation}
+    Where:
+    \begin{equation}
+        a_n = \frac{1}{2\pi i} \int_{\gamma} \frac{f(z)}{(z-z_0)^{n+1}} dz
+    \end{equation}
+    for any simple, closed, positively oriented curve $\gamma$ in $D$ containing $z_0$ and $\gamma=|z-z_0| = R$.\\
+    This means that functions that are equal on a disc of radius $r$ must have the same power series expansion. Furthermore, $a_n = 0$ being a valid power series expansion for $f(z)$ means it's the only power series expansion for $f(z)$.
+
+    (b) If $F(z) = G(z)$ on a disc of radius $r$, using the previous theorem, $F(z)$ and $G(z)$ must have the same power series expansion. Therefore, $a_n = b_n$ for all $n$.
+\end{example}
+
+\begin{example}
+    (Fisher, Section 2.3, Problem 2) Evaluate the following integral:
+
+    $$\int_{|z|=2}\frac{e^z}{z(z-3)}dz$$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can use Cauchy's Integral Formula to evaluate this integral. Let $f(z) = \frac{e^z}{z-3}$ and $z_0 = 0$. Then, the integral evaluates to:
+
+    \begin{align*}
+        \int_{|z|=2}\frac{e^z}{z(z-3)}dz & = 2\pi i f(0) = 2\pi i \frac{e^0}{-3} = -\frac{2\pi i}{3}
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.3, Problem 4]
+    Evaluate the following integral:
+    $$\int_{|z|=1}\frac{\sin(z)}zdz$$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can use Cauchy's Integral Formula to evaluate this integral. Let $f(z) = \sin(z)$ and $z_0 = 0$. Then, the integral evaluates to:
+    \begin{align*}
+        \int_{|z|=1}\frac{\sin(z)}zdz & = 2\pi i f(0) = 2\pi i \sin(0) = 0
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.3, Problem 8]
+
+    Evaluate the following definite trigonometric integral. (Hint: it may be useful to review the technique of Examples 6 and 7 of Section
+
+    2.3).
+
+    $$\int_0^\pi\frac1{1+\sin^2\theta}d\theta $$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We know that:
+    \begin{align*}
+        \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}
+    \end{align*}
+    So we can parametrize using the relation, $z = e^{i\theta}$:
+    \begin{align*}
+        \sin^2\theta & = \frac{e^{i\theta} - e^{-i\theta}}{2i} \cdot \frac{e^{i\theta} - e^{-i\theta}}{2i} \\
+                     & = \frac{(e^{i\theta})^2 - 2 + (e^{i\theta})^-2}{-4}                                 \\
+                     & = \frac{z^2 - 2 + z^{-2}}{-4}
+    \end{align*}
+    And the differential becomes:
+    \begin{align*}
+        d\theta & = \frac{dz}{iz}
+    \end{align*}
+    So the integral becomes:
+    \begin{align*}
+        \int_0^\pi\frac1{1+\sin^2\theta}d\theta & = \int_{|z|=1}\frac{1}{1 + \frac{z^2 - 2 + z^{-2}}{-4}} \frac{dz}{iz} \\
+                                                & = \int_{|z|=1}\frac{-4iz}{z^4 - 6z^2 + 1} dz
+    \end{align*}
+
+    We can find the roots using the quadratic formula ($z^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ with $a = 1, b = -6, c = 1$)
+
+    \begin{align*}
+        z^2 & = \frac{-6 \pm \sqrt{36 - 4}}{2} = \frac{-6 \pm \sqrt{32}}{2} = 3 \pm 2\sqrt{2} \\
+        z   & = \pm\sqrt{3 \pm 2\sqrt{2}}                                                     \\
+    \end{align*}
+    Now let's rewrite the integral in terms of $z$:
+    \begin{align*}
+         & \int_{|z|=1}\frac{-4iz}{z^4 - 6z^2 + 1} dz  =                                                                                        \\
+         & \int_{|z|=1}\frac{-4iz}{(z - \sqrt{3 + 2\sqrt{2}})(z + \sqrt{3 + 2\sqrt{2}})(z - \sqrt{3 - 2\sqrt{2}})(z + \sqrt{3 - 2\sqrt{2}})} dz
+    \end{align*}
+    We choose $|(z - \sqrt{3 - 2\sqrt{2}})| < 1$ as the contour of integration and we can write:
+    \begin{align*}
+        f(z) = \frac{-4iz}{(z + \sqrt{3 - 2\sqrt{2}})(z - \sqrt{3 + 2\sqrt{2}})(z + \sqrt{3 + 2\sqrt{2}})}
+    \end{align*}
+    So the integral evaluates to:
+    \begin{align*}
+        \int_{|z|=1}\frac{-4iz}{z^4 - 6z^2 + 1} dz & = \int_{|z|=1}\frac{\frac{-4iz}{(z + \sqrt{3 - 2\sqrt{2}})(z - \sqrt{3 + 2\sqrt{2}})(z + \sqrt{3 + 2\sqrt{2}})}}{(z - \sqrt{3 - 2\sqrt{2}})} dz
+    \end{align*}
+    Applying Cauchy's Integral Formula, we get:
+    \begin{align*}
+         & \int_{|z|=1}\frac{-4iz}{z^4 - 6z^2 + 1} dz = 2\pi i f(\sqrt{3 - 2\sqrt{2}})                                                                            \\
+         & = 2\pi i \frac{-4i\sqrt{3 - 2\sqrt{2}}}{2\sqrt{3 - 2\sqrt{2}}(\sqrt{3 - 2\sqrt{2}} - \sqrt{3 + 2\sqrt{2}})(\sqrt{3 - 2\sqrt{2}}+\sqrt{3 + 2\sqrt{2}})} \\
+         & = 2\pi i (\frac{i}{2\sqrt2})                                                                                                                           \\
+         & = -\frac{\pi}{\sqrt{2}}
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.3, Problem 10]
+
+    Evaluate the following integral.(Hint: It may be useful to review the technique of Example 10 of Section 2.3)
+    $$\int_\gamma(z+z^{-1})dz$$
+
+
+    Where $\gamma$ is any curve contained in the region $\{$Im$( z) > 0\}$ which joints $-4+i$ to $6+2i.$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We know that the derivative of $F(z) = \frac{z^2}{2} + \ln(z)$ is $f(z) = z + z^{-1}$. But this is valid only where $\ln(z)$ is analytic, which is the case for $\{$Im$( z) > 0\}$. So the integral evaluates to:
+    \begin{align*}
+        \int_\gamma(z+z^{-1})dz & = \int_\gamma f(z)dz = \int_\gamma F'(z)dz                        \\
+                                & = F(\text{end}) - F(\text{start})                                 \\
+                                & = F(6+2i) - F(-4+i)                                               \\
+                                & = \frac{(6+2i)^2}{2} + \ln(6+2i) - \frac{(-4+i)^2}{2} - \ln(-4+i) \\
+                                & = 8.5 + 16i + \ln(6 + 2i) - \ln(-4 + i)
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.3, Problem 14]
+
+    (a)(5 points) Suppose $f$ is analytic on the disc $|z-z_0|<R$.Show that for any $r<R$ we have
+
+    $$f(z_0)=\frac1{2\pi}\int_0^{2\pi}f(z_0+re^{it})dt$$
+
+    (b) (5 points) Using part (a) and the triangle inequality, conclude that
+
+    $$|f(z_0)|\leq\max_{0\leq t\leq2\pi}|f(z_0+re^{it})|$$
+
+    (c)(5 points) Conclude from (b) that $|f|$ cannot have a strict local maximum within the domain of analyticity of $f$
+
+    \hrule
+    \vspace{0.5cm}
+
+    (a) The Cauchy Integral Formula states that for any $r<R$:
+    \begin{align*}
+        f(z_0) & = \frac{1}{2\pi i} \int_{|z-z_0| = r} \frac{f(z)}{z - z_0} dz
+    \end{align*}
+    We can parametrize the integral using:
+    \begin{align*}
+        z  & = z_0 + re^{it} \quad \text{where} \quad 0 \leq t \leq 2\pi \\
+        dz & = ire^{it}dt
+    \end{align*}
+    So the integral becomes:
+    \begin{align*}
+        f(z_0) & = \frac{1}{2\pi i} \int_{0}^{2\pi} \frac{f(z_0 + re^{it})}{re^{it}} ire^{it} dt \\
+               & = \frac{1}{2\pi} \int_{0}^{2\pi} f(z_0 + re^{it}) dt
+    \end{align*}
+    As required.
+    (b) using what we found in part (a), we can write:
+    \begin{align*}
+        f(z_0) & = \frac{1}{2\pi} \int_{0}^{2\pi} f(z_0 + re^{it}) dt \\
+    \end{align*}
+    Thus:
+    \begin{align*}
+        \left|\frac{1}{2\pi} \int_{0}^{2\pi} f(z_0 + re^{it}) dt \right|         & \leq \frac{1}{2\pi} \int_{0}^{2\pi} |f(z_0 + re^{it})| dt                     \\
+        \frac{1}{2\pi} \int_{0}^{2\pi} |f(z_0 + re^{it})| dt                     & \leq \frac{1}{2\pi} \int_{0}^{2\pi} \max_{0\leq t\leq2\pi}|f(z_0+re^{it})| dt \\
+        \text{Since the maximum is constant}                                     & \text{, we can take it out of the integral}                                   \\
+        \frac{1}{2\pi} \int_{0}^{2\pi} \max_{0\leq t\leq2\pi}|f(z_0+re^{it})| dt & =\max_{0\leq t\leq2\pi}|f(z_0+re^{it})| \frac{1}{2\pi}  \int_{0}^{2\pi} dt    \\
+                                                                                 & = \max_{0\leq t\leq2\pi}|f(z_0+re^{it})|
+    \end{align*}
+    Therefore I can write:
+    \begin{align*}
+        |f(z_0)|\leq\max_{0\leq t\leq2\pi}|f(z_0+re^{it})|
+    \end{align*}
+
+    (c) If $|f|$ has a strict local maximum at $z_0$, then $|f(z_0)| > |f(z_0 + re^{it})|$ for some $r<R$. But this contradicts the inequality we found in part (b). Therefore, $|f|$ cannot have a strict local maximum within the domain of analyticity of $f$.
+\end{example}
