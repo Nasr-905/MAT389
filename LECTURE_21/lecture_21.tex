@@ -1,0 +1,147 @@
+\chapter{Lecture 21: Harmonic Functions \& Boundary Value Problems}
+
+\begin{proposition}
+    [Boundary Value Problems]
+    Suppose $D \in \mathbb{R}^2$ bounded domain and $\phi: \partial D \to R$ is given. How do we find (or does there exist) $u : D \mathbb{R}$:
+    \begin{align}
+        \begin{cases}
+            \Delta u = 0 \\
+            u|_{\partial D} = \phi
+        \end{cases}
+    \end{align}
+    This becomes a \underline{boundary vlaue problem}, which is a prototypical partial differential equation.
+\end{proposition}
+
+\begin{theorem}
+    [Solving Boundary Value Problems]
+    \underline{\textbf{Strategy:} Integral Representation} \underline{Formula}
+    Recall: if $f$ is analytic on a simply connected domain $D$, with $\gamma = \partial D$ then:
+    \begin{align}
+        f(z) = \frac{1}{2\pi i}\int_{\gamma} \frac{f(\xi)}{\xi - z} d\xi \quad \forall z \in D \\
+    \end{align}
+    Therefore, if we know $f$ on $\gamma$, we know $f$ everywhere in $D$, and even have a formula for it!
+\end{theorem}
+
+\begin{proposition}
+    [Integral Representation Formula for Harmonic Functions]
+    We try to apply this to harmonic functions. Let:
+    \begin{align}
+        D = \{|z|\leq 1\}, \quad \gamma = \{e^{it} : 0 < t \leq 2\pi\}
+    \end{align}
+    if $u$ is harmonic on $D$, then we can find $f$ analytic such that $\Re (f) = u$. Then:
+    \begin{align}
+        f(z) & = \frac{1}{2\pi i}\int_{\partial D} \frac{f(\xi)}{\xi - z} d\xi                             \\
+        u    & = \Re (f)                                                                                   \\
+             & = \Re \left( \frac{1}{2\pi i}\int_{0}^{2\pi} \frac{f(e^{it)}}{e^{it} - z} e^{it} dt \right)
+    \end{align}
+    But this depends on $\Re(f)$ and $\Im(f)$ on $\gamma$. This is not helpful as we only know $\Re(f) = u$ on $\gamma$ and having to find $\Im(f)$ adds another layer of complexity.\\
+    \underline{Trick:} Consider:
+    \begin{align}
+        G(\xi) = \frac{f(\xi)\overline{z}}{1 - \overline{z}\xi}
+    \end{align}
+    Is analytic as a function of $\xi$ on $D$. Then by Cauchy's Theorem:
+    \begin{align}
+        \int_\gamma \frac{f(\xi)\overline{z}}{1 - \overline{z}\xi} d\xi = 0
+    \end{align}
+    Then:
+    \begin{align}
+        f(z) & = \frac{1}{2\pi i}\left[ \int_\gamma \frac{f(\xi)}{\xi - z} + \frac{f(\xi)\overline{z}}{1 - \overline{z}\xi}d\xi\right]                      \\
+             & = \frac{1}{2\pi i}\int_\gamma f(\xi)\left[ \frac{(1 - \xi \overline{z}) + (\xi - z)\overline{z}}{(\xi - z)(1 - \overline{z}\xi)} \right]d\xi \\
+             & = \frac{1}{2\pi i}\int_\gamma f(\xi)\left[\frac{(1 - |z|^2)}{(1 - \overline{z}\xi^{-1})(1 - z\xi)}\right]\frac{d\xi}{\xi}
+    \end{align}
+    On $\xi = e^{it}$ we have:
+    \begin{align}
+        \frac{d\xi}{\xi} = i dt \\
+        \xi^{-1} = e^{-it} = \overline{\xi}
+    \end{align}
+    So:
+    \begin{align}
+        f(z) = \frac{1}{2\pi}\int_{0}^{2\pi} f(e^{it})\underbrace{\frac{1 - |z|^2}{|1 - \overline{z}e^{it}|^2}}_{\text{Real}}dt
+    \end{align}
+    So:
+    \begin{align}
+        u = \Re (f) = \frac{1}{2\pi}\int_{0}^{2\pi} \Re(f(e^{it}))\frac{1 - |z|^2}{|1 - \overline{z}e^{it}|^2}dt
+    \end{align}
+    Since we want $\Re(f) = u = \phi$ on $\partial D$, we have:
+    \begin{align}
+        u(z) & = \frac{1}{2\pi}\int_{0}^{2\pi}\phi(e^{it})\left[\frac{1 - |z|^2}{|1 - \overline{z}e^{it}|^2}\right]dt
+    \end{align}
+    Where $\frac{1 - |z|^2}{|1 - \overline{z}e^{it}|^2}$ is the \underline{Poisson Kernel} for the disk.\\
+    If $z = re^{i\theta}$, then:
+    \begin{align}
+        \frac{1 - |z|^2}{|1 - e^{it}\overline{z}|^2} & = \frac{1 - r^2}{(1 - e^{it}\overline{z})\overline{(1 - e^{it}\overline{z})}}                                \\
+                                                     & = \frac{1 - r^2}{(1 - e^{it}\overline{z})(1 - e^{-it}z)}                                                     \\
+                                                     & = \frac{1 - r^2}{1 - e^{it} re^{-i\theta} - e^{-it} re^{i\theta} + e^{it} re^{-i\theta}e^{-it} re^{i\theta}} \\
+                                                     & = \frac{1 - r^2}{1 - e^{i(t-\theta)} - e^{i(\theta -t)} + r^2}                                               \\
+        \rightarrow e^{it}                           & = \cos(t) + i\sin(t)                                                                                         \\
+                                                     & = \frac{1 - r^2}{1 - \cos(t - \theta) - r\cos(t - \theta) + r^2}                                             \\
+                                                     & = \frac{1 - r^2}{1 - 2r\cos(\theta - t) + r^2}
+                                                     & = P_r(\theta - t)
+    \end{align}
+    Then:
+    \begin{align}
+        u(re^{i\theta}) & = \frac{1}{2\pi}\int_{0}^{2\pi}\phi(e^{it})\frac{1 - r^2}{1 - 2r\cos(\theta - t) + r^2}dt \\
+                        & = \frac{1}{2\pi}\int_{0}^{2\pi}\phi(e^{it})P_r(\theta - t)dt
+    \end{align}
+    Which solves the boundary value problem:
+    \begin{align}
+        \begin{cases}
+            \Delta u        & = 0           \\
+            u|_{\partial D} & = \phi        \\
+            \text{for }D    & = \{|z| < 1\}
+        \end{cases}
+    \end{align}
+    We only require that $\phi$ be bounded, piecewise continuous.
+\end{proposition}
+
+\begin{theorem}
+    [Integral Formula on the Upper Half-plane]
+    If $\phi: \{\Im (z)  = 0 \} \to R$ is given, bounded, piecewise continuous. Then:
+    \begin{align}
+        \boxed{W(\sigma + i\tau) = \frac{1}{\pi}\int_{-\infty}^{\infty}\phi(\tau)\left( \frac{\tau}{(\sigma - s)^2 + \tau^2} \right)ds \qquad (\tau ?> 0)}
+    \end{align}
+
+    Solves the boundary value problem:
+    \begin{align}
+        \begin{cases}
+            \Delta w = 0 \quad \text{in } \mathbb{H} = \{\Im (z) > 0\} \\
+            w|_{\Im (z) = 0} = \phi
+        \end{cases}
+    \end{align}
+\end{theorem}
+
+\begin{proof}
+    Recall $\psi (z) = i\frac{(1 +z)}{(1 - z)}$ defines a conformal map:
+    \begin{align}
+        \psi: \{|z| < 1\} \to \mathbb{H} = \{\Im (z) > 0\}
+    \end{align}
+    Then:
+    \begin{align}
+        \tilde{\phi}(z) = \phi(\psi(z)) : \{|z| < 1\} \to \mathbb{R}
+    \end{align}
+    Is bounded, piecewise continuous on $|z| = 1$. Thus:
+    \begin{align*}
+        u(z)           & = \frac{1}{2\pi}\int_{0}^{2\pi}\tilde{\phi}(e^{it})\frac{1 - |z|^2}{|1 - \overline{z}e^{it}|^2}dt \\
+        \text{solves } & \begin{cases}
+                             \Delta u = 0 \text{ on } \{|z| < 1\} \\
+                             u|_{\partial D} = \tilde{\phi}
+                         \end{cases}
+    \end{align*}
+    Then $w(\xi) = u(\psi^{-1}(\xi))$ is the desired function, such that:
+    \begin{align}
+        \begin{cases}
+            \Delta w = 0 \text{ in } \mathbb{H} \\
+            w|_{\Im (\xi) = 0} = \tilde{\phi}(\psi^{-1}(\xi)) = \phi(\xi) = \phi(\psi(\psi^{-1}(\xi))) = \phi(\xi)
+        \end{cases}
+    \end{align}
+    And:
+    \begin{align}
+        \psi^{-1}(\xi) = \frac{\xi - i}{\xi + i}
+    \end{align}
+    So:
+    \begin{align}
+        w(\sigma + i\tau) = \frac{1}{\pi}\int_{-\infty}^{\infty}\phi(t)\left( \frac{\tau}{(\sigma - t)^2 + \tau^2} \right)dt
+    \end{align}
+    Then plug into the Rep. Formula for $u$ and simplify.\\
+    The key idea is to use conformal maps to transport the representation formula from the disk to other domains
+\end{proof}

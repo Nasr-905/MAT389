@@ -1,4 +1,4 @@
-\chapter{Analytic Functions and the Cauchy-Riemann Equations}
+\chapter{Lecture 5: Analytic Funct. \& Cauchy-Riemann Equations}
 
 \section{Analytic Functions}
 
@@ -49,8 +49,6 @@
         \textbf{Property}       & \textbf{Description}                                                                                                                                                                               \\
         \hline
         Linearity               & The derivative of a sum is the sum of the derivatives: \[ (f + g)'(z) = f'(z) + g'(z) \] The derivative of a constant multiple is the constant multiple of the derivative: \[ (cf)'(z) = cf'(z) \] \\
-        \hline
-        Product Rule            & The derivative of a product is given by: \[ (fg)'(z) = f'(z)g(z) + f(z)g'(z) \]                                                                                                                    \\
         \hline
         Quotient Rule           & The derivative of a quotient is given by: \[ \left( \frac{f}{g} \right)'(z) = \frac{f'(z)g(z) - f(z)g'(z)}{g(z)^2} \]                                                                              \\
         \hline
@@ -139,10 +137,6 @@
     Where $\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}$ is the Laplacian operator.
 \end{theorem}
 
-\begin{corollary}
-    If a function $f(z)$ is once complex differentiable, then it is infinitely differentiable and analytic.
-\end{corollary}
-
 \begin{proof}
     Cauchy-Riemann equations give us the partial derivatives of $u, v$.
     $$
@@ -156,6 +150,10 @@
                                                                                                  & \Delta u = 0
     \end{align*}
 \end{proof}
+
+\begin{corollary}
+    If a function $f(z)$ is once complex differentiable, then it is infinitely differentiable and analytic.
+\end{corollary}
 
 \begin{theorem}
     Let $f = u + iv$ and assume $u, v, \frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial v}{\partial x}, \frac{\partial v}{\partial y}$ are defined and continuous on a disc around $z_0$. If $u, v$ satisfy the Cauchy-Riemann equations at $z_0$, then $f$ is complex differentiable at $z_0$.

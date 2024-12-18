@@ -27,7 +27,7 @@
 
 \section{Tests for Convergence}
 \begin{theorem}
-    If $\sum_{n=1}^{\infty} z_n$ converges, then so does $\sum_{n=1}^{\infty} z_n$ and:
+    If $\sum_{n=1}^{\infty} |z_n|$ converges, then so does $|\sum_{n=1}^{\infty} z_n|$ and:
     \[
         \left| \sum_{n=1}^{\infty} z_n \right| \leq \sum_{n=1}^{\infty} |z_n|
     \]
@@ -35,11 +35,11 @@
 
 \begin{proof}
     Say $z_n = x_n + i y_n$. Then:
-    \begin{align}
-         & \left| \sum_{n=1}^{\infty} x_n \right| & \leq \sum_{n=1}^{\infty}  \left| x_n \right| \leq \sum_{n=1}^{\infty}  \left| z_n \right| \\
-         & \text{And}                                                                                                                         \\
-         & \left| \sum_{n=1}^{\infty} y_n \right| & \leq \sum_{n=1}^{\infty}  \left| y_n \right| \leq \sum_{n=1}^{\infty}  \left| z_n \right|
-    \end{align}
+    \begin{align*}
+        \left| \sum_{n=1}^{\infty} x_n \right| & \leq \sum_{n=1}^{\infty}  \left| x_n \right| \leq \sum_{n=1}^{\infty}  \left| z_n \right| \\
+                                               & \text{And}                                                                                \\
+        \left| \sum_{n=1}^{\infty} y_n \right| & \leq \sum_{n=1}^{\infty}  \left| y_n \right| \leq \sum_{n=1}^{\infty}  \left| z_n \right|
+    \end{align*}
     So if $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\infty} y_n$ converge, then $\sum_{n=1}^{\infty} z_n$ converges.
 \end{proof}
 
@@ -81,14 +81,14 @@
         \sum_{j=1}^{\infty} j \left( \frac{1 + 2i}{3} \right)^j &
     \end{align}
     We can use the ratio test to determine convergence:
-    \begin{align}
+    \begin{align*}
         \sum_{j=1}^{\infty} \left| z_j \right|                 & = \sum_{j=1}^{\infty} j \left| \frac{1 + 2i}{3} \right|^j                                 \\
                                                                & = \sum_{j=1}^{\infty} j \left( \frac{\sqrt{5}}{3} \right)^j                               \\
         \lim_{j \to \infty} \left| \frac{z_{j+1}}{z_j} \right| & = \lim_{j \to \infty} \frac{(j+1)({\frac{\sqrt{5}}{3}})^{j + 1}}{j(\frac{\sqrt{5}}{3})^j} \\
                                                                & = \lim_{j \to \infty} \frac{j+1}{j} \left( \frac{\sqrt{5}}{3} \right)                     \\
-                                                               & = \frac{5}{3} < 1
+                                                               & = \frac{\sqrt{5}}{3} < 1
                                                                & \therefore \text{The series converges}
-    \end{align}
+    \end{align*}
 \end{example}
 
 \section{The Exponential Function}
@@ -113,21 +113,21 @@
     \centering
     \begin{tabular}{| m{2.5cm} | m{11.5cm} |}
         \hline
-        \textbf{Property} & \textbf{Description}                                                                                                                      \\
+        \textbf{Property} & \textbf{Description}                                                                                                                     \\
         \hline
-        Periodicity       & The complex exponential function is periodic with period \( 2\pi i \), \[ e^{z + 2\pi i} = e^z \].                                        \\
+        Periodicity       & The complex exponential function is periodic with period \( 2\pi i \), \[ e^{z + 2\pi i} = e^z \].                                       \\
         \hline
-        Multiplication    & The exponential function satisfies \[ e^{z_1 + z_2} = e^{z_1} e^{z_2} \] for any complex numbers \( z_1 \) and \( z_2 \).                 \\
+        Multiplication    & The exponential function satisfies \[ e^{z_1 + z_2} = e^{z_1} e^{z_2} \] for any complex numbers \( z_1 \) and \( z_2 \).                \\
         \hline
-        Derivative        & The derivative of the exponential function is \[ \frac{d}{dz} e^z = e^z \].                                                               \\
+        Derivative        & The derivative of the exponential function is \[ \frac{d}{dz} e^z = e^z \].                                                              \\
         \hline
-        Inverse           & The inverse of the exponential function is the complex logarithm, \[ \log z \], such that \[ e^{\log z} = z \] for \( z \neq 0 \).        \\
+        Inverse           & The inverse of the exponential function is the complex logarithm, \[ \log z \] such that \[ e^{\log z} = z \] for \( z \neq 0 \).        \\
         \hline
-        Magnitude         & The magnitude of the exponential function is \[ |e^z| = e^{\Re(z)} \], where \( \Re(z) \) denotes the real part of \( z \).               \\
+        Magnitude         & The magnitude of the exponential function is \[ |e^z| = e^{\Re(z)} \] where \( \Re(z) \) denotes the real part of \( z \).               \\
         \hline
-        Argument          & The argument of the exponential function is \[ \arg(e^z) = \Im(z) \mod 2\pi \], where \( \Im(z) \) denotes the imaginary part of \( z \). \\
+        Argument          & The argument of the exponential function is \[ \arg(e^z) = \Im(z) \mod 2\pi \] where \( \Im(z) \) denotes the imaginary part of \( z \). \\
         \hline
-        Conjugate         & The conjugate of the exponential function is \[ \overline{e^z} = e^{\overline{z}} \].                                                     \\
+        Conjugate         & The conjugate of the exponential function is \[ \overline{e^z} = e^{\overline{z}} \].                                                    \\
         \hline
     \end{tabular}
     \caption{Properties of the Complex Exponential Function}
@@ -200,7 +200,7 @@ For $\theta \in \mathbb{R}$
     We can fix the argument of the logarithm function by setting \(\theta_0\) and letting $D = \{ te^{i\theta_0} | t > 0, t \in \mathbb{R} \}$.\\
     We define:
     \[
-        \widetilde{\log}_{\theta_0} z = \log |z| + i \left( \widetilde{\arg}(z) + \theta_0 \right) \qquad \text{for } z \in D, \arg(z) \in [\theta_0, \theta_0 + 2\pi)
+        \widetilde{\log}_{\theta_0} z = \log |z| + i \left( \widetilde{\arg}(z) + \theta_0 \right) \qquad \text{for } z \in D, \widetilde{\arg}(z) \in [0, 2\pi)
     \]
 \end{definition}
 
@@ -211,14 +211,14 @@ For $\theta \in \mathbb{R}$
                  & = e^{i (2n + 1)\pi i}                    \\
                  & = e^{-2n\pi}                             \\
         \log(-1) & = -(2n + 1)\pi i \qquad n \in \mathbb{Z} \\
-        (-1)^i   & = e^{2n + 1}\pi
+        (-1)^i   & = e^{2n + 1\pi}
     \end{align}
 \end{example}
 
 \section{The Trigonometric Functions}
 \begin{definition}
     [Trigonometric Functions]
-    For $z \in mathbb{C}$ trigonometric functions are defined as:
+    For $z \in \mathbb{C}$ trigonometric functions are defined as:
     \begin{align}
         \Re{e^{iz}} & = \cos(z)  = \frac{e^{iz} + e^{-iz}}{2}  \\
         \Im{e^{iz}} & = \sin(z)  = \frac{e^{iz} - e^{-iz}}{2i} \\

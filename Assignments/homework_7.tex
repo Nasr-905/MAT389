@@ -1,0 +1,470 @@
+\chapter{Homework 7}
+
+\begin{example}
+    [Fisher, Section 2.5, Problem 10]
+
+    Find the first four terms of the Laurent series of $f(z)=\frac z{\left(\sin(z)\right)^2}$ around $z_0=0$.That is, find an expansion of the form
+
+    $$f(z)=\frac{a_{-1}}z+a_0+a_1z+a_2z^2+O(z^3)$$
+
+    For $a_{-1},a_0,a_1,a_2\in\mathbb{C}.$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We know that:
+    \begin{align*}
+        \sin(z)                & =z-\frac{z^3}{3!}+\frac{z^5}{5!}-\frac{z^7}{7!}+\cdots      \\
+        \left(\sin(z)\right)^2 & =z^2-\frac{2z^4}{3!}+\frac{2z^6}{5!}-\frac{2z^8}{7!}+\cdots
+    \end{align*}
+    Substituting that back into the original function, we get:
+    \begin{align*}
+        f(z) & =\frac z{\left(\sin(z)\right)^2}                                                    \\
+             & =\frac z{z^2-\frac{2z^4}{3!}+\frac{2z^6}{5!}-\frac{2z^8}{7!}+\cdots}                \\
+             & =\frac 1{z-\frac{2z^3}{3!}+\frac{2z^5}{5!}-\frac{2z^7}{7!}+\cdots}                  \\
+             & =\frac 1z\cdot\frac 1{1-\frac{2z^2}{3!}+\frac{2z^4}{5!}-\frac{2z^6}{7!}+\cdots}     \\
+             & =\frac 1z\cdot\left(1+\frac{2z^2}{3!}+\frac{2z^4}{5!}+\frac{2z^6}{7!}+\cdots\right) \\
+             & =\frac 1z+\frac{2z}{3!}+\frac{2z^3}{5!}+\frac{2z^5}{7!}+\cdots                      \\
+             & =\frac 1z+\frac 2{3!}z+\frac 2{5!}z^3+\frac 2{7!}z^5+\cdots                         \\
+             & = \frac 1z + 0 + \frac 1{3}z + 0\cdot z^2 + O(z^3)
+    \end{align*}
+
+    Therefore, the first four terms of the Laurent series of $f(z)=\frac z{\left(\sin(z)\right)^2}$ around $z_0=0$ are:
+    \begin{align*}
+        a_{-1} & =1 \quad a_0=0 \quad a_1=\frac 1{3} \quad a_2=0
+    \end{align*}
+\end{example}
+
+
+\begin{example}
+    [Fisher, Section 2.5, Problem 12]
+
+    Find the first four terms of the Laurent series of $f(z)=\frac1{e^z-1}$ around $z_0=0.$ That is,
+    $$f(z)=\frac{a_{-1}}z+a_0+a_1z+a_2z^2+O(z^3)$$
+
+    for $a_{-1},a_0,a_1,a_2\in\mathbb{C}.$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We know that:
+    \begin{align*}
+        e^z   & =1+z+\frac{z^2}{2}+\frac{z^3}{3!}+ \frac{z^4}{4!}+\cdots \\
+        e^z-1 & =z+\frac{z^2}{2}+\frac{z^3}{3!}+ \frac{z^4}{4!}+\cdots
+    \end{align*}
+    Substituting that back into the original function, we get:
+    \begin{align*}
+        f(z) & =\frac1{e^z-1}                                                           \\
+             & =\frac1{z+\frac{z^2}{2}+\frac{z^3}{3!}+ \frac{z^4}{4!}+\cdots}           \\
+             & =\frac1z\cdot\frac1{1+\frac{z}{2}+\frac{z^2}{3!}+ \frac{z^3}{4!}+\cdots} \\
+    \end{align*}
+    We can use the geometric series formula to simplify the above expression, we know that:
+    $$\frac1{1-x}=1+x+x^2+x^3+\cdots$$
+    Therefore, we can rewrite the denominator as:
+    \begin{align*}
+        \frac1{1+\frac{z}{2}+\frac{z^2}{3!}+ \frac{z^3}{4!}+\cdots} & =\frac1{1-\left(-\frac z{2}-\frac{z^2}{3!}- \frac{z^3}{4!}-\cdots\right)} \\
+                                                                    & \approx \frac1{1-\left(-\frac z{2}\right)} \quad \text{for small } z      \\
+                                                                    & \rightarrow w = -\frac{z}{2} \quad \text{so}                              \\
+                                                                    & = 1 - \frac{z}{2} + (-\frac{z}{2})^2 + (-\frac{z}{2})^3 + \cdots          \\
+                                                                    & = 1 - \frac{z}{2} + \frac{z^2}{4} - \frac{z^3}{8} + \cdots
+    \end{align*}
+    Substituting that back into the original function, we get:
+    \begin{align*}
+        f(z) & =\frac1z\cdot\left(1 - \frac{z}{2} + \frac{z^2}{4} - \frac{z^3}{8} + \cdots\right) \\
+             & =\frac1z-\frac{1}{2}+\frac{z}{4}-\frac{z^2}{8}+\cdots
+    \end{align*}
+    Therefore the first four terms of the Laurent series of $f(z)=\frac1{e^z-1}$ around $z_0=0$ are:
+    \begin{align*}
+        a_{-1} & =1 \quad a_0=-\frac 12 \quad a_1=\frac 14 \quad a_2=-\frac 18
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.6, Problem 9]
+
+    Compute the integral
+
+    $$\int_0^{2\pi}\frac{d\theta}{(2-\sin(\theta))^2}$$
+
+    \hrule
+    \vspace{0.5cm}
+    From the theorem in lecture 10, we know that residues of a function $f(z) = \frac{H(z)}{(z - z_0)^m}$ at a pole $z_0$ are given by: $\text{Res}(f, z_0) = \lim_{z \to z_0} \frac{H(z)}{(z - z_0)^m} = c_{m-1}$, where $c_{m-1}$ is the coefficient of the $(z - z_0)^{m-1}$ term in the Laurent series of $f(z)$ around $z_0$. Therefore, we can find the residue of the integrand at $z=0$ by finding the coefficient of the $z^{-1}$ term in the Laurent series of the integrand around $z=0$.
+    We know that $\sin(\theta)=\frac{e^{i\theta}-e^{-i\theta}}{2i}$, so:
+    \begin{align*}
+        (2 - \frac{e^{i\theta}-e^{-i\theta}}{2i})^2 & = (\frac{4i - e^{i\theta} + e^{-i\theta}}{2i})^2                                         \\
+                                                    & \rightarrow z = e^{i\theta}                                                              \\
+                                                    & = (\frac{4i - z + \frac{1}{z}}{2i} )^2                                                   \\
+                                                    & = -\frac{-16 - 4iz + \frac{4i}{z} - 4iz + z^2 - 1 + \frac{4i}{z} - 1 + \frac{1}{z^2}}{4} \\
+                                                    & = -\frac{-18 - 8iz + z^2 + \frac{1}{z^2} + \frac{8i}{z}}{4}                              \\
+                                                    & = \frac{9}{2} +2iz - \frac{z^2}{4} - \frac{1}{4z^2} - \frac{2i}{z}
+    \end{align*}
+    We can also change the infinitesimal $d\theta$ to $dz$:
+    \begin{align*}
+        dz = i e^{i\theta} d\theta \\
+        d\theta = \frac{dz}{iz}
+    \end{align*}
+
+    Therefore, the integral becomes:
+    \begin{align*}
+        \int_0^{2\pi}\frac{d\theta}{(2-\sin(\theta))^2} & = \oint_{|z|=1} \frac{dz}{iz(\frac{9}{2} +2iz - \frac{z^2}{4} - \frac{1}{4z^2} - \frac{2i}{z})}
+    \end{align*}
+    Now we can use the residue theorem to evaluate the integral. Now we want to find where the integrand is singular. We can do this by setting the denominator to zero and solving for $z$:
+    \begin{align*}
+        4z^2(\frac{9}{2} +2iz - \frac{z^2}{4} - \frac{1}{4z^2} - \frac{2i}{z}) & = 0 \\
+        18z^2 + 8iz^3 - z^4 - 1 - 8iz                                          & = 0 \\
+    \end{align*}
+    We assume that the solution is of the form $(z^2 +Az + B)(z^2 + Cz + D)$, so we can expand the above equation to get:\\
+    $z^4 + (A+C)z^3 + (AC+B+D)z^2 + (AD+BC)z + BD  = z^4 - 8iz^3 - 18z^2 + 8iz  + 1 = 0$
+
+    This gives the system of equations:
+    \begin{align*}
+        A+C    & = -8i \\
+        AC+B+D & = -18 \\
+        AD+BC  & = 8i  \\
+        BD     & = 1
+    \end{align*}
+    Let's guess that $B = D = -1$ Because this would satisfy the last equation and make the first and third equations equivalent.
+    \begin{align*}
+        A+C    & = -8i \\
+        AC     & = -16 \\
+        -A - C & = 8i  \\
+    \end{align*}
+    By inspection we can see that $A = C = -4i$, this allows us to factor the denominator as:
+    \begin{align*}
+        (z^2 - 4iz - 1)^2 & = 0
+    \end{align*}
+    We can use the quadratic formula to find the roots of the above equation:
+    \begin{align*}
+        z & = \frac{b\pm\sqrt{b^2-4ac}}{2a}              \\
+        z & = \frac{-4i\pm\sqrt{(-4i)^2-4(1)(-1)}}{2(1)} \\
+        z & = \frac{-4i\pm\sqrt{-16+4}}{2}               \\
+        z & = \frac{-4i\pm\sqrt{-12}}{2}                 \\
+        z & = i(2 \pm \sqrt{3})
+    \end{align*}
+
+    Our contour is the unit circle where $|z| = 1$, so we're only considering residues within the unit circle.
+    \begin{align*}
+        |z_1| = |i(2 + \sqrt{3})| = 2 + \sqrt{3} > 1 \\
+        |z_2| = |i(2 - \sqrt{3})| = 2 - \sqrt{3} < 1
+    \end{align*}
+    Therefore, the only pole within the unit circle is $z_2 = i(2 - \sqrt{3})$, and it's a double pole. We can find the residue at $z_2$ by finding the coefficient of the $z^{-1}$ term in the Laurent series of the integrand around $z_2$.
+    \begin{align*}
+        f(z) & = \frac{1}{iz(\frac{9}{2} +2iz - \frac{z^2}{4} - \frac{1}{4z^2} - \frac{2i}{z})} \\
+             & = \frac{4zi}{(z - i(2 + \sqrt{3}))^2(z - i(2 - \sqrt{3}))^2}
+    \end{align*}
+
+    Using the residue theorem that says:
+    \begin{align*}
+        \oint_C f(z)dz                                                           & = 2\pi i \sum_{k=1}^n \text{Res}(f, z_k) \\
+        \oint_{|z|=1} \frac{4zi}{(z - i(2 + \sqrt{3}))^2(z - i(2 - \sqrt{3}))^2} & = 2\pi i \text{Res}(f, z_2)
+    \end{align*}
+
+    We can find the residue at $z_2$, at $m = 2$
+    \begin{align*}
+        \text{Res}(f,z_k) & = \frac{1}{(m - 1)!}\lim_{z \to z_k} \frac{d^{m-1}}{dz^{m-1}} \left( (z - z_k)^m f(z) \right) \\
+                          & = \frac{1}{1!}\lim_{z \to z_2} \frac{d}{dz} \left( (z - z_2)^2 f(z) \right)                   \\
+                          & = \lim_{z \to z_2} \frac{d}{dz} \left( \frac{4zi(z - z_2)^2}{(z - z_1)^2(z - z_2)^2} \right)  \\
+                          & = \lim_{z \to z_2} \frac{d}{dz} \left( \frac{4zi}{(z - z_1)^2} \right)                        \\
+                          & = \lim_{z \to z_2} \frac{4(z - z_1) - 8i}{(z - z_1)^3}                                        \\
+                          & = \frac{4(i(2 - \sqrt{3}) - i(2 + \sqrt{3})) - 8i}{(i(2 - \sqrt{3}) - i(2 + \sqrt{3}))^3}     \\
+                          & = \frac{4(-2\sqrt{3}i) - 8i}{(-2\sqrt{3}i)^3}                                                 \\
+                          & = \frac{-8\sqrt{3}i - 8i}{8\cdot 3i\sqrt{3}}                                                  \\
+                          & = \frac{-\sqrt{3} - 1}{3\sqrt{3}}                                                             \\
+    \end{align*}
+
+    Therefore, the integral is:
+
+    \begin{align*}
+        \int_0^{2\pi}\frac{d\theta}{(2-\sin(\theta))^2} & = \oint_{|z|=1} \frac{dz}{iz(\frac{9}{2} +2iz - \frac{z^2}{4} - \frac{1}{4z^2} - \frac{2i}{z})} \\
+                                                        & = 2\pi i \text{Res}(f, z_2)                                                                     \\
+                                                        & = 2\pi i \left( = \frac{-\sqrt{3} - 1}{3\sqrt{3}} \right)                                       \\
+                                                        & = \frac{-2\pi}{3\sqrt{3}}i
+    \end{align*}
+    So in summary, the steps to solve the integral are:
+    \begin{itemize}
+        \item Recognize that integrals of the form $\int f(\sin(\theta), \cos(\theta)) d\theta$ can be solved by converting to complex form.
+        \item Convert the integrand to complex form by using the identity $\sin(\theta) = \frac{e^{i\theta} - e^{-i\theta}}{2i}$.
+        \item Perform a change of variables to convert the integral from $d\theta$ to $dz$ by using $z = e^{i\theta}, \, d\theta = \frac{dz}{iz}$.
+        \item Also remember to change the limits of integration to $|z| = 1$.
+        \item Next we realize that it's possible that within our contour, the integrand has singularities. So we must use either the residue theorem or the Cauchy integral formula to evaluate the integral.
+        \item In order to use the residue theorem, or Cauchy Integral Theorem, we must find the singularities of the integrand. We do this by setting the denominator to zero and solving for $z$.
+        \item We find that the integrand has a double pole at $z = i(2 - \sqrt{3})$.
+        \item Because there's one pole within the unit circle, we could use the cauchy integral formula to evaluate the integral. However, we chose to use the residue theorem.
+        \item There are multiple ways to solve for a residue, note that $m$ is the order of the pole.
+        \item[] \begin{itemize}
+                  \item We can use the formula $\text{Res}(f, z_0) = \lim_{z \to z_0} \frac{H(z)}{(z - z_0)^m} = c_{m-1}$, where $c_{m-1}$ is the coefficient of the $(z - z_0)^{m-1}$ term in the Laurent series of $f(z)$ around $z_0$.
+                  \item We can also use the formula $\text{Res}(f,z_k) = \frac{1}{(m - 1)!}\lim_{z \to z_k} \frac{d^{m-1}}{dz^{m-1}} ((z - z_k)^m f(z))$
+                  \item or we can just expand the integrand into a Laurent series \textbf{around the singularity (not zero)}, then find the coefficient of the $z^{m-1}$ term
+              \end{itemize}
+        \item After finding the residue, we can use the residue theorem to evaluate the integral: $\oint_C f(z)dz = 2\pi i \sum_{k=1}^n \text{Res}(f, z_k)$.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.6, Problem 10]
+
+    Compute the integral
+
+    $$\int_0^{2\pi}\frac{d\theta}{(1+\beta\cos(\theta))^2}\quad\mathrm{for~}-1<\beta<1$$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can convert the denominator to a complex form by using the identity $\cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2}$, so:
+
+    \begin{align*}
+        (1 + \beta\cos(\theta))^2               & = (1 + \frac{\beta}{2}(e^{i\theta} + e^{-i\theta}))^2                                            \\
+                                                & \rightarrow z = e^{i\theta} \quad dz = i e^{i\theta} d\theta \rightarrow d\theta = \frac{dz}{iz} \\
+                                                & = (1 + \frac{\beta}{2}(z + \frac{1}{z}))^2                                                       \\
+        \frac{d\theta}{(1+\beta\cos(\theta))^2} & = \frac{dz}{iz(1 + \frac{\beta}{2}(z + \frac{1}{z}))^{2}}                                        \\
+    \end{align*}
+    The limits of integration can be converted as well:
+    \begin{align*}
+        \theta = 0    & \rightarrow z = e^{i0} = 1    \\
+        \theta = 2\pi & \rightarrow z = e^{i2\pi} = 1
+    \end{align*}
+    The path that the integral is taken over is the unit circle, so $|z| = 1$. We can now substitute the limits of integration and the integrand into the integral:
+    \begin{align*}
+        \int_0^{2\pi}\frac{d\theta}{(1+\beta\cos(\theta))^2} & = \oint_{|z|=1} \frac{dz}{iz(1 + \frac{\beta}{2}(z + \frac{1}{z}))^{2}}
+    \end{align*}
+
+    We can now find the singularities of the integrand by setting the denominator to zero and solving for $z$:
+    \begin{align*}
+        iz(1 + \frac{\beta}{2}(z + \frac{1}{z}))^{2}                                                                   & = 0 \\
+        (1 + \frac{\beta}{2}(z + \frac{1}{z}))^{2}                                                                     & = 0 \\
+        (\beta (z + \frac{1}{z}) + \frac{\beta^2}{4}(z + \frac{1}{z})^2 + 1)                                           & = 0 \\
+        \beta (z + z^{-1}) + \frac{\beta^2}{4}(z^2 + 2 + z^{-2}) + 1                                                   & = 0 \\
+        z^2\left(\beta z + \beta z^{-1} + \frac{\beta^2}{4}z^2 + \frac{\beta^2}{2} + \frac{\beta^2}{4}z^{-2} +1\right) & = 0 \\
+        \beta z^3 + \beta z + \frac{\beta^2}{4}z^4 + \frac{\beta^2}{2}z^2 + \frac{\beta^2}{4} + z^2                    & = 0 \\
+        \frac{\beta^2}{4}z^4 + \beta z^3 + \frac{\beta^2}{2}z^2 + z^2 + \beta z + \frac{\beta^2}{4}                    & = 0 \\
+        \frac{\beta^2}{4}z^4 + \beta z^3 + (\frac{\beta^2}{2} + 1)z^2 + \beta z + \frac{\beta^2}{4}                    & = 0 \\
+    \end{align*}
+
+    We guess that the solution is symmetric, that is, it can be decomposed into two identical quadratics, i.e. $(Az^2 + Bz + C)^2$:\\
+    $A^2 z^4 + 2ABz^3 + (2CA + B^2) z^2 + 2BCz + C^2 = \frac{\beta^2}{4}z^4 + \beta z^3 + (\frac{\beta^2}{2} + 1)z^2 + \beta z + \frac{\beta^2}{4}$\\
+
+    This gives the system of equations:
+    \begin{align*}
+        A^2         & =  \frac{\beta^2}{4}     \\
+        2AB         & = \beta                  \\
+        (2CA + B^2) & =(\frac{\beta^2}{2} + 1) \\
+        2BC         & = \beta                  \\
+        C^2         & = \frac{\beta^2}{4}
+    \end{align*}
+    Right away we know $C = \pm \frac{\beta}{2}$, and so by inspection we can see that:
+    \begin{align*}
+        A = C & = \frac{\beta}{2} \\
+        B     & = 1
+    \end{align*}
+    Therefore, the denominator can be factored as:
+    \begin{align*}
+        \left(\frac{\beta}{2}z^2 + z + \frac{\beta}{2}\right)^2 & = 0 \\
+    \end{align*}
+    We can use the quadratic formula to find the roots of the above equation:
+    \begin{align*}
+        z   & = \frac{-b\pm\sqrt{b^2-4ac}}{2a}                                               \\
+        z   & = \frac{-1\pm\sqrt{1-4(\frac{\beta}{2})(\frac{\beta}{2})}}{2(\frac{\beta}{2})} \\
+        z   & = \frac{-1\pm\sqrt{1-\beta^2}}{\beta}                                          \\
+        z_1 & = \frac{-1+\sqrt{1-\beta^2}}{\beta}                                            \\
+        z_2 & = \frac{-1-\sqrt{1-\beta^2}}{\beta}
+    \end{align*}
+    Multiplying the simplifying factors back in $(\frac{iz}{z^2})$ gets us the factorization:
+    \begin{align*}
+        \frac{i}{z}(z - z_1)^2(z - z_2)^2
+    \end{align*}
+    Now we find which poles are within the unit circle:
+    \begin{align*}
+        |z_1| \rightarrow 0 \leq \left|\frac{-1+\sqrt{1-\beta^2}}{\beta}\right| \leq 1 \\
+        |z_2| \rightarrow 1 \leq \left|\frac{-1-\sqrt{1-\beta^2}}{\beta}\right| \leq 2
+    \end{align*}
+    Therefore, the only pole within the unit circle is $z_1 = \frac{-1+\sqrt{1-\beta^2}}{\beta}$, and it's a double pole. We can now use the residue theorem to evaluate the integral. It says:
+    \begin{align*}
+        \oint_C f(z)dz                                  & = 2\pi i \sum_{k=1}^n \text{Res}(f, z_k) \\
+        \oint_{|z|=1} \frac{z}{i(z - z_1)^2(z - z_2)^2} & = 2\pi i \text{Res}(f, z_1)
+    \end{align*}
+    Using the formula for the residue of a double pole:
+    \begin{align*}
+        \text{Res}(f,z_k)     & = \frac{1}{(m - 1)!}\lim_{z \to z_k} \frac{d^{m-1}}{dz^{m-1}} ((z - z_k)^m f(z))                          \\
+        \text{Res}(f,z_1)     & = \frac{1}{1!}\lim_{z \to z_1} \frac{d}{dz} \left( (z - z_1)^2 f(z) \right)                               \\
+        \text{Res}(f,z_1)     & = \lim_{z \to z_1} \frac{d}{dz} \left(\frac{z(z - z_1)^2}{i(z - z_1)^2(z - z_2)^2} \right)                \\
+        \text{Res}(f,z_1)     & = \lim_{z \to z_1} \frac{d}{dz} \left(\frac{z}{i(z - z_2)^2} \right)                                      \\
+        \text{Res}(f,z_1)     & = \lim_{z \to z_1} \left(\frac{2i - i(z-z_2)}{(z - z_2)^3} \right)                                        \\
+        \rightarrow z_1 - z_2 & = \frac{-1+\sqrt{1-\beta^2}}{\beta} - \frac{-1-\sqrt{1-\beta^2}}{\beta} = \frac{2\sqrt{1-\beta^2}}{\beta} \\
+        \text{Res}(f,z_1)     & = \frac{2i - i(\frac{2\sqrt{1-\beta^2}}{\beta})}{(\frac{2\sqrt{1-\beta^2}}{\beta})^3}                     \\
+        \text{Res}(f,z_1)     & = \frac{i\beta^3}{4\sqrt{1-\beta^2}^3} - \frac{i\beta^2}{4(1-\beta^2)}                                    \\
+    \end{align*}
+    Therefore, the integral is:
+    \begin{align*}
+        \int_0^{2\pi}\frac{d\theta}{(1+\beta\cos(\theta))^2} & = \oint_{|z|=1} \frac{dz}{iz(1 + \frac{\beta}{2}(z + \frac{1}{z}))^{2}}                        \\
+                                                             & = 2\pi i \text{Res}(f, z_1)                                                                    \\
+                                                             & = 2\pi i \left( \frac{i\beta^3}{4\sqrt{1-\beta^2}^3} - \frac{i\beta^2}{4(1-\beta^2)} \right)   \\
+                                                             & = \frac{\pi}{2} \left( -\frac{\beta^3}{\sqrt{1-\beta^2}^3} + \frac{\beta^2}{1-\beta^2} \right)
+    \end{align*}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.6, Problem 13]
+
+    Compute the following integral
+
+    $$\int_0^\infty\frac{x^\alpha}{x^2+3x+2}dx\quad\mathrm{for~}0<\alpha<1$$
+
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can convert the integral into a complex integral by realizing that $x = z$ and $x^\alpha = e^{\alpha\log(x)} = e^{\alpha\log(z)} = z^\alpha, \, dx = dz$.
+    \begin{align*}
+        \int_0^\infty\frac{x^\alpha}{x^2+3x+2}dx & = \int_0^\infty\frac{e^{\alpha\log(z)}}{z^2+3z+2}dz
+    \end{align*}
+    Because we've introduced a logarithm into the integral, we know we must choose a keyhole contour to evaluate the integral. Because the integral is evaluated over the positive real axis, we can choose the branch cut to be the positive real axis. This is because we know for a keyhole contour that:
+    \begin{align*}
+        \oint_{\text{Keyhole} = C} f(z)dz & = (\text{Path above the branch cut}) - (\text{Path below the branch cut}) \\
+                                          & + (\text{Large arc}) - (\text{Small arc})                                 \\
+    \end{align*}
+    And as $R \rightarrow \infty$ and $R \rightarrow 0$, the integrals over the large and small arcs go to zero. So:
+    \begin{align*}
+        \oint_{\text{Keyhole} = C} f(z)dz & = (\text{Path above the branch cut}) - (\text{Path below the branch cut}) \\
+                                          & = (1 - e^{2\pi i \alpha})\int_0^\infty f(z)dz
+    \end{align*}
+    We can now convert the integrand into a complex form by using the identity $\log(z) = \log|z| + i\arg(z)$:
+    \begin{align*}
+        \frac{e^{\alpha\log(z)}}{z^2+3z+2} & = \frac{e^{\alpha(\log|z| + i\arg(z))}}{z^2+3z+2}      \\
+                                           & = \frac{e^{\alpha\log|z|}e^{i\alpha\arg(z)}}{z^2+3z+2} \\
+                                           & = \frac{z^\alpha e^{i\alpha\arg(z)}}{z^2+3z+2}
+    \end{align*}
+    Now let's proceed with using the residue theorem.\\
+    We can factor the denominator as:
+    \begin{align*}
+        z^2 + 3z + 2 & = (z + 2)(z + 1)
+    \end{align*}
+    This gives us the single poles at $z = -2$ and $z = -1$. We can now find the residues at these poles by using the formula, where $m = 1$:
+    \begin{align*}
+        \text{Res}(f, z_k) & = \frac{1}{(m - 1)!}\lim_{z \to z_k} \frac{d^{m-1}}{dz^{m-1}} ((z - z_k)^m f(z)) \\
+        \text{Res}(f, -2)  & = \lim_{z \to -2} \frac{z^\alpha e^{i\alpha\arg(z)}}{(z + 1)}                    \\
+                           & = \frac{(-2)^\alpha e^{i\alpha\arg(-2)}}{(-2 + 1)}                               \\
+                           & = -(-2)^\alpha e^{i\alpha\pi}                                                    \\
+        \rightarrow        & u^\alpha = e^{\alpha \log(u)}                                                    \\
+                           & = -e^{\alpha \log(-2)} e^{i\alpha\pi}                                            \\
+                           & = -e^{\alpha (\log(2) + i\arg(-2))} e^{i\alpha\pi}                               \\
+                           & = -e^{\alpha (\log(2) + i\pi)} e^{i\alpha\pi}                                    \\
+                           & = -2^\alpha e^{2i\alpha\pi}                                                      \\
+        \text{Res}(f, -1)  & = \lim_{z \to -1} \frac{z^\alpha e^{i\alpha\arg(z)}}{(z + 2)}                    \\
+                           & = \frac{(-1)^\alpha e^{i\alpha\arg(-1)}}{(-1 + 2)}                               \\
+                           & = (-1)^\alpha e^{i\alpha\arg(-1)}                                                \\
+                           & = (-1)^\alpha e^{i\alpha\pi}                                                     \\
+                           & = e^{\alpha \log(-1)} e^{i\alpha\pi}                                             \\
+                           & = e^{\alpha (\log(1) + i\arg(-1))} e^{i\alpha\pi}                                \\
+                           & = e^{\alpha (0 + i\pi)} e^{i\alpha\pi}                                           \\
+                           & = e^{i\alpha\pi} e^{i\alpha\pi}                                                  \\
+                           & = e^{2i\alpha\pi}
+    \end{align*}
+    Therefore, the integral is:
+    \begin{align*}
+        \int_0^\infty\frac{x^\alpha}{x^2+3x+2}dx & = \frac{1}{1 - e^{2\pi i \alpha}}\oint_{\text{Keyhole} = C} f(z)dz                 \\
+                                                 & = \frac{2\pi i}{1 - e^{2\pi i \alpha}}(\text{Res}(f, -2) + \text{Res}(f, -1))      \\
+                                                 & = \frac{2\pi i}{1 - e^{2\pi i \alpha}}(-2^\alpha e^{2i\alpha\pi} +e^{2i\alpha\pi})
+    \end{align*}
+
+    So in summary, the steps to solve the integral are:
+    \begin{enumerate}
+        \item Recognize that the integral is over the positive real axis, and that the integrand has a logarithm in it.
+        \item Because of the logarithm, we must choose a keyhole contour to evaluate the integral, and since the integral is over the positive real axis, we can choose the branch cut to be the positive real axis because $\oint_{\text{Keyhole} = C} f(z)dz = (\text{Path above the branch cut}) - (\text{Path below the branch cut}) = (1 - e^{2\pi i \alpha})\int_0^\infty f(z)dz$ as $R \rightarrow \infty$ and $R \rightarrow 0$.
+        \item Convert the integrand into a complex form by using the identity $\log(z) = \log|z| + i\arg(z)$.
+        \item Find the singularities of the integrand by setting the denominator to zero and solving for $z$.
+        \item Find the residues at the poles by using the formula $\text{Res}(f, z_k) = \frac{1}{(m - 1)!}\lim_{z \to z_k} \frac{d^{m-1}}{dz^{m-1}} ((z - z_k)^m f(z))$.
+        \item Use the residue theorem to evaluate the integral: $\oint_{\text{Keyhole} = C} f(z)dz = (\text{Path above the branch cut}) - (\text{Path below the branch cut}) = (1 - e^{2\pi i \alpha})\int_0^\infty f(z)dz$.
+        \item After finding the residues, we can use the formula $\int_0^\infty\frac{x^\alpha}{x^2+3x+2}dx = \frac{2\pi i}{1 - e^{2\pi i \alpha}}(\text{Res}(f, -2) + \text{Res}(f, -1))$ to evaluate the integral.
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 2.6 Problem 14]
+    Compute the following integral
+    $$\int_0^\infty\frac{\sqrt{x}}{x^2+2x+5}dx$$
+
+    \hrule
+    \vspace{0.5cm}
+
+    We can convert the integral into a complex integral by realizing that $x = z$ and $dx = dz$.
+    \begin{align*}
+        \int_0^\infty\frac{\sqrt{x}}{x^2+2x+5}dx & = \int_0^\infty\frac{\sqrt{z}}{z^2+2z+5}dz
+    \end{align*}
+    Now we can find the singularities of the integrand by the quadratic formula:
+    \begin{align*}
+        z^2 + 2z + 5            & = 0                              \\
+        z                       & = \frac{-b\pm\sqrt{b^2-4ac}}{2a} \\
+        z                       & = \frac{-2\pm\sqrt{4-20}}{2}     \\
+        z                       & = \frac{-2\pm\sqrt{-16}}{2}      \\
+        z                       & = \frac{-2\pm4i}{2}              \\
+        z                       & = -1\pm2i                        \\
+        z_1                     & = -1+2i                          \\
+        z_2                     & = -1-2i                          \\
+        \therefore z^2 + 2z + 5 & = (z + 1 - 2i)(z + 1 + 2i)
+    \end{align*}
+    We can now find the residues at these poles by using the formula, where $m = 1$:
+    \begin{align*}
+        \text{Res}(f, z_k)   & = \frac{1}{(m - 1)!}\lim_{z \to z_k} \frac{d^{m-1}}{dz^{m-1}} ((z - z_k)^m f(z))                                                   \\
+        \text{Res}(f, -1+2i) & = \lim_{z \to -1+2i} \frac{z^\frac{1}{2}}{(z + 1 + 2i)}                                                                            \\
+                             & = \frac{(-1+2i)^{\frac{1}{2}}}{(-1+2i + 1 + 2i)}                                                                                   \\
+                             & \rightarrow (-1+2i)^{\frac{1}{2}} \quad \text{De Moivre's Theorem}                                                                 \\
+                             & \rightarrow z^n = r^n(\cos(\theta n) + i\sin(\theta n))                                                                            \\
+                             & \rightarrow (-1+2i)^{\frac{1}{2}} = (\sqrt{5}(\cos(\pi - \tan^{-1}{\frac{2}1}) + i\sin(\pi - \tan^{-1}{\frac{2}1})))^{\frac{1}{2}} \\
+                             & \rightarrow (-1+2i)^{\frac{1}{2}} \approx 5^\frac{1}{4}(\cos(\frac{2\pi}{3\times 2}) + i\sin(\frac{2\pi}{3\times 2}))              \\
+                             & \rightarrow (-1+2i)^{\frac{1}{2}} \approx 5^\frac{1}{4}(\cos(\frac{\pi}{3}) + i\sin(\frac{\pi}{3}))                                \\
+                             & \rightarrow (-1+2i)^{\frac{1}{2}} \approx 5^\frac{1}{4}(\frac{1}{2} + i\frac{\sqrt{3}}{2})                                         \\
+                             & \rightarrow (-1+2i)^{\frac{1}{2}} \approx \frac{5^\frac{1}{4}}{2} + i\frac{5^\frac{1}{4}\sqrt{3}}{2}                               \\
+                             & = \frac{\frac{5^\frac{1}{4}}{2} + i\frac{5^\frac{1}{4}\sqrt{3}}{2}}{4i}                                                            \\
+                             & = -i\frac{5^\frac{1}{4}}8 - \frac{5^\frac{1}{4}\sqrt{3}}{8}                                                                        \\
+    \end{align*}
+    We can also find the residue at $z_2$:
+    \begin{align*}
+        \text{Res}(f, -1-2i) & = \lim_{z \to -1-2i} \frac{z^\frac{1}{2}}{(z + 1 - 2i)}                                                                            \\
+                             & = \frac{(-1-2i)^{\frac{1}{2}}}{(-1-2i + 1 - 2i)}                                                                                   \\
+                             & \rightarrow (-1-2i)^{\frac{1}{2}} \quad \text{De Moivre's Theorem}                                                                 \\
+                             & \rightarrow (-1-2i)^{\frac{1}{2}} = (\sqrt{5}(\cos(\pi + \tan^{-1}{\frac{2}1}) + i\sin(\pi + \tan^{-1}{\frac{2}1})))^{\frac{1}{2}} \\
+                             & \rightarrow (-1-2i)^{\frac{1}{2}} \approx 5^\frac{1}{4}(\cos(\frac{4\pi}{3\times 2}) + i\sin(\frac{4\pi}{3\times 2}))              \\
+                             & \rightarrow (-1-2i)^{\frac{1}{2}} \approx 5^\frac{1}{4}(\cos(\frac{2\pi}{3}) + i\sin(\frac{2\pi}{3}))                              \\
+                             & \rightarrow (-1-2i)^{\frac{1}{2}} \approx 5^\frac{1}{4}(-\frac{1}{2} + i\frac{\sqrt{3}}{2})                                        \\
+                             & \rightarrow (-1-2i)^{\frac{1}{2}} \approx -\frac{5^\frac{1}{4}}{2} + i\frac{5^\frac{1}{4}\sqrt{3}}{2}                              \\
+                             & = \frac{-\frac{5^\frac{1}{4}}{2} + i\frac{5^\frac{1}{4}\sqrt{3}}{2}}{4i}                                                           \\
+                             & = i\frac{5^\frac{1}{4}}8 - \frac{5^\frac{1}{4}\sqrt{3}}{8}                                                                         \\
+    \end{align*}
+
+    Therefore, the integral is:
+    \begin{align}
+        \int_0^\infty\frac{\sqrt{x}}{x^2+2x+5}dx & =  \frac{1}{1 - e^{2\pi i \frac{1}{2}}}\oint_{\text{Keyhole} = C} f(z)dz                                                       \\
+                                                 & = \frac{2\pi i}{1 - (-1)}(\text{Res}(f, -1+2i) + \text{Res}(f, -1-2i))                                                         \\
+                                                 & = -\pi i(-i\frac{5^\frac{1}{4}}8 - \frac{5^\frac{1}{4}\sqrt{3}}{8} + i\frac{5^\frac{1}{4}}8 - \frac{5^\frac{1}{4}\sqrt{3}}{8}) \\
+                                                 & = \frac{\pi i}{4}5^\frac{1}{4}\sqrt3
+    \end{align}
+\end{example}
+
+\begin{example}
+    [Fisher, Section 3.1, Problem 1]
+
+    Determine the number of zeroes of $f(z) = z^2 - z + 1$ in the first quadrant (i.e. where $\Re(z) > 0, \Im(z) > 0$).
+
+    \hrule
+    \vspace{0.5cm}
+    We can use the quadratic formula to find the zeroes of the function:
+    \begin{align}
+        z & = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}             \\
+          & = \frac{-(-1) \pm \sqrt{(-1)^2 - 4(1)(1)}}{2(1)} \\
+          & = \frac{1 \pm \sqrt{-3}}{2}
+        z_1 = \frac{1}2 + i\sqrt{3}2                         \\
+        z_2 = \frac{1}2 - i\sqrt{3}2                         \\
+    \end{align}
+    Only $z_1$ is in the first quadrant, so the answer is 1.
+\end{example}
+
+\begin{example}
+    [Fisher, Section 3.1, Problem 3]
+
+    Determine the number of zeroes of $f(z) = z^3 - 3z + 6$ in the first quadrant (i.e. where $\Re(z) > 0, \Im(z) > 0$).
+
+    \hrule
+    \vspace{0.5cm}
+
+    We ca
+\end{example}

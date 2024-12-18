@@ -1,5 +1,5 @@
-\chapter{Connectedness}
-\section{Lecture 2: Connected Sets}
+\chapter{Lecture 2: Connectedness}
+\section{Connected Sets}
 \begin{definition}
     [Connected Set]
     An \textit{open} set $D$ is connected if each pair of points $p, q \in D$ can be joined by a polygonal path lying entirely in $D$. That is:
@@ -49,7 +49,7 @@
     [Open Half-plane]
     A set $D$ is an open half-plane if it is of the form
     \[
-        D = \{z \in \mathbb{C} : \Re\{az + b\} \geq 0\}
+        D = \{z \in \mathbb{C} : \Re\{az + b\} > 0\}
     \]
     \textit{Each open half-plane is convex and open}
 \end{definition}
@@ -58,7 +58,7 @@
     [Closed Half-plane]
     A set $D$ is a closed half-plane if it is of the form
     \[
-        D = \{z \in \mathbb{C} : \Re\{az + b\} > 0\}
+        D = \{z \in \mathbb{C} : \Re\{az + b\} \geq 0\}
     \]
     \textit{Each closed half-plane is convex and closed}
 \end{definition}
@@ -99,8 +99,8 @@
 \begin{definition}
     [Limits of Functions]
     \begin{align}
-         & \lim_{z \to z_0} f(z) = w \iff \forall \epsilon > 0, \exists \delta > 0 \\
-         & \text{such that} 0 < |z - z_0| < \delta \implies |f(z) - w| < \epsilon
+         & \lim_{z \to z_0} f(z) = w \iff \forall \epsilon > 0, \exists \delta > 0     \\
+         & \text{such that}\quad 0 < |z - z_0| < \delta \implies |f(z) - w| < \epsilon
     \end{align}
 \end{definition}
 

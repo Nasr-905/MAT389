@@ -1,4 +1,4 @@
-\chapter{Lecture 10: Residues and Poles} % Main chapter title
+\chapter{Lecture 10: Residues and Laurent Series} % Main chapter title
 
 \begin{definition}
     [Residue]
@@ -48,7 +48,7 @@
         e^z                 & = 1 + z + \frac{z^2}{2!} + \cdots = \sum_{n=0}^{\infty} \frac{z^n}{n!}           \\
         \frac{e^z - 1}{z^2} & = \frac{1}{z^2} + \frac{z}{2!} + \cdots = \sum_{n=0}^{\infty} \frac{z^{n-2}}{n!} \\
     \end{align*}
-    So the residue is $c_{-1} = \frac{1}{1!} = 1$.
+    So the residue is $c_{m-1} = \frac{1}{1!} = 1$.
 \end{example}
 
 \begin{example}
@@ -63,7 +63,7 @@
              & = w - 1 - \frac{3}{w}                                                                          \\
              & = \frac{-3}{z + 2} - 1 + z + 2
     \end{align*}
-    So the residue is $c_{-1} = -3$.
+    So the residue is $c_{m-1} = -3$.
 \end{example}
 
 \section{Laurent series}
@@ -136,7 +136,29 @@
 
 \begin{example}
     \begin{enumerate}
-        \item $f(z) = \frac{H(z)}{(z - z_0)^m}$
+        \item[]
+        \item $f(z) = \frac{H(z)}{(z - z_0)^m} \qquad $ where $H(z)$ is analytic at $z_0$ and $H(z_0) \neq 0$.
         \item $f(z) = e^\frac{1}{z} = \sum_{n=0}^{\infty} \frac{z^{-n}}{n!}$
     \end{enumerate}
 \end{example}
+
+\section{Common Series Expansions}
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| m{4.6cm} | m{4.6cm} | m{4.6cm}|}
+        \hline
+        \textbf{Function}       & \textbf{Series Expansion}                               & \textbf{Radius of Convergence}     \\ \hline
+        \[\frac{1}{1 - z}\]     & \[\sum_{n=0}^{\infty} z^n\]                             & \[|z| < 1\]                        \\ \hline
+        \[e^z\]                 & \[\sum_{n=0}^{\infty} \frac{z^n}{n!}\]                  & \[ \text{All } z \in \mathbb{C} \] \\ \hline
+        \[\sin(z)\]             & \[\sum_{n=0}^{\infty} (-1)^n \frac{z^{2n+1}}{(2n+1)!}\] & \[\text{All } z \in \mathbb{C}\]   \\ \hline
+        \[\cos(z)\]             & \[\sum_{n=0}^{\infty} (-1)^n \frac{z^{2n}}{(2n)!}\]     & \[\text{All } z \in \mathbb{C}\]   \\ \hline
+        \[\ln(1 + z)\]          & \[\sum_{n=1}^{\infty} (-1)^{n+1} \frac{z^n}{n}\]        & \[|z| < 1\]                        \\ \hline
+        \[(1 + z)^{\alpha}\]    & \[\sum_{n=0}^{\infty} \binom{\alpha}{n} z^n\]           & \[|z| < 1\]                        \\ \hline
+        \[\sinh(z)\]            & \[\sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!}\]        & \[\text{All } z \in \mathbb{C}\]   \\ \hline
+        \[\cosh(z)\]            & \[\sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!}\]            & \[\text{All } z \in \mathbb{C}\]   \\ \hline
+        \[\frac{1}{(1 - z)^k}\] & \[\sum_{n=0}^{\infty} \binom{n + k - 1}{k - 1} z^n\]    & \[|z| < 1\]                        \\ \hline
+    \end{tabular}
+    \caption{Common Series Expansions}
+\end{table}
